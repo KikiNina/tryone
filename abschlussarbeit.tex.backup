@@ -10,12 +10,17 @@
 % es muss allerdings ein unicode-faehiger Editor benutzt werden (unter Linux alle, unter Windows ???).
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
 % fuer eine Arbeit in deutscher Sprache sinnvoll:
 \usepackage[english]{babel}
 % Schriftarten: Variante 1
 \usepackage{lmodern,hfoldsty,charter}
 % Schriftarten: Variante 2
 %\usepackage{charter}
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\changefont{cms}{m}{n}\huge\bfseries\color{black}}
+    
 % Paket fuer mathematische Symbole
 \usepackage{amssymb}
 
@@ -59,6 +64,8 @@
 %\setmainmatterspacing{double}
 
 \begin{document}
+
+\changefont{cmss}{m}{n}
 
 \begin{frontmatter}
 \input{teil-vorspann}

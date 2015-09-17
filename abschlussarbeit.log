@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.13)  17 SEP 2015 15:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.17)  17 SEP 2015 18:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -564,17 +564,17 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2013/12/03 3.9h The Babel package
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngermanb.ldf
-Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2013/12/03 3.9h Babel common definitions
 \babel@savecnt=\count111
 \U@D=\dimen136
 )
-\l@naustrian = a dialect from \language\l@ngerman 
-\l@nswissgerman = a dialect from \language\l@ngerman 
-Package babel Info: Making " an active character on input line 88.
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
 ))
 (/usr/share/texmf/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
@@ -788,25 +788,25 @@ Option `squaren' provided!
 (./abschlussarbeit.aux)
 \openout1 = `abschlussarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 64.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 61.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Try loading font information for T1+bch on input line 64.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Try loading font information for T1+bch on input line 61.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1bch.fd
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 )
@@ -981,7 +981,7 @@ Processing 'mainmatter' comment.
 Straight input of comment.cut. (./comment.cut (./kapitel-1.tex [7] [8
 
 ]
-Kapitel 1.
+Chapter 1.
 LaTeX Font Info:    Try loading font information for OMS+bch on input line 14.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsbch.fd
 File: omsbch.fd 
@@ -989,15 +989,15 @@ File: omsbch.fd
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
 
-Overfull \hbox (13.48824pt too wide) in paragraph at lines 16--17
-\T1/bch/m/n/12 der Kom-man-do-zei-le bzw. im Latex-Editor ``Ki-le'' mit der Pro
-jekt-Einstellung ``Schnell-
+Overfull \hbox (14.82344pt too wide) in paragraph at lines 16--17
+\T1/bch/m/n/12 der Kom-man-dozeile bzw. im Latex-Editor ``Kile'' mit der Projek
+t-Einstellung ``Schnell-
  []
 
 [1]
 Overfull \hbox (4.17151pt too wide) in paragraph at lines 18--19
-\T1/bch/m/n/12 Präambel an-ge-ge-be-ne Code-Tabelle (\T1/bch/m/it/12 use-packa-
-ge in-pu-tenc\T1/bch/m/n/12 -Befehl) mit der im Latex-
+\T1/bch/m/n/12 Präambel angegebene Code-Tabelle (\T1/bch/m/it/12 usep-a-ck-age 
+in-pu-tenc\T1/bch/m/n/12 -Befehl) mit der im Latex-
  []
 
 
@@ -1025,8 +1025,8 @@ Package natbib Warning: Citation `Nolting2007' on page 2 undefined on input lin
 e 25.
 
 ) (./kapitel-2.tex [2]
-Kapitel 2.
-<bilder/kreis.pdf, id=50, 567.11874pt x 381.425pt>
+Chapter 2.
+<bilder/kreis.pdf, id=51, 567.11874pt x 381.425pt>
 File: bilder/kreis.pdf Graphic file (type pdf)
  <use bilder/kreis.pdf>
 Package pdftex.def Info: bilder/kreis.pdf used on input line 16.
@@ -1038,7 +1038,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3
 
- <./bilder/kreis.pdf>] <bilder/quadrat.pdf, id=64, 565.11125pt x 383.4325pt>
+ <./bilder/kreis.pdf>] <bilder/quadrat.pdf, id=65, 565.11125pt x 383.4325pt>
 File: bilder/quadrat.pdf Graphic file (type pdf)
 
 <use bilder/quadrat.pdf>
@@ -1050,7 +1050,7 @@ Package pdftex.def Info: bilder/quadrat.pdf used on input line 26.
 
 Comment 'appendices' writing to comment.cut. Straight input of comment.cut.
 (./comment.cut (./anhang.tex [4 <./bilder/quadrat.pdf>]
-Anhang A.
+Appendix A.
 
 Package natbib Warning: Citation `HaugKoch2004' on page 5 undefined on input li
 ne 21.
@@ -1079,10 +1079,10 @@ Package natbib Warning: There were undefined citations.
 
 [9] (./abschlussarbeit.aux) ) 
 Here is how much of TeX's memory you used:
- 9106 strings out of 493308
- 133737 string characters out of 6140092
- 245351 words of memory out of 5000000
- 12293 multiletter control sequences out of 15000+600000
+ 9058 strings out of 493304
+ 133067 string characters out of 6139871
+ 244475 words of memory out of 5000000
+ 12246 multiletter control sequences out of 15000+600000
  64772 words of font info for 75 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  50i,13n,57p,478b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1096,9 +1096,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmr8.pfb>
-Output written on abschlussarbeit.pdf (17 pages, 598673 bytes).
+Output written on abschlussarbeit.pdf (17 pages, 584728 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
+ 126 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
