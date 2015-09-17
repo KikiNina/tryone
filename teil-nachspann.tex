@@ -1,0 +1,28 @@
+% Verweis auf Literaturverzeichnis zum Inhaltsverzeichnis hinzufuegen
+\addtocontents{toc}{\vspace*{1em}}
+
+% Literaturliste aus Literaturdatenbank (Bibtex-Datei) bauen. Nur tatsaechlich zitierte Literatur wird in Liste aufgenommen.
+% Regelmaessigen Aufruf von ``bibtex abschlussarbeit'' nicht vergessen, falls das der Latex-Editor nicht
+% erledigt.
+% Zur Bearbeitung der Literaturdatenbank kann das Programm JabRef (http://jabref.sf.net) empfohlen werden. (Java-Programm, laeuft unter Windows, Linux, Mac, ...)
+\bibliography{literatur}
+% Stil fuer Literaturliste festlegen
+% Variante A: DIN, Eintraege erhalten Kuerzel aus Autoren-Initialien und Jahr, alphabetisch geordnet
+% \bibliographystyle{alphadin}
+% Variante B: DIN, Eintraege werden durchnummeriert, alphabetisch geordnet
+\bibliographystyle{abbrvdin}
+
+
+\begin{abstract}[Selbständigkeitserklärung]
+\thispagestyle{empty}
+Ich versichere hiermit an Eides statt, dass ich die vorliegende Arbeit selbstständig
+angefertigt und ohne fremde Hilfe verfasst habe, keine außer den von mir
+angegebenen Hilfsmitteln und Quellen dazu verwendet habe und die den benutzten
+Werken inhaltlich und wörtlich entnommenen Stellen als solche kenntlich gemacht
+habe.
+\vspace*{2cm}
+
+\flushright{
+Rostock, (Datum)
+}
+\end{abstract}

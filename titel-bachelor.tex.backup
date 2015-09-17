@@ -1,0 +1,43 @@
+% Klassische Titelseite
+
+\thispagestyle{empty}
+\begin{center}
+\vspace*{-2cm}
+\includegraphics[width=0.75\textwidth]{unilogo-siegel-farbe}\\
+\vspace*{3cm}
+    {\titlefont \huge \onehalfspacing
+	\thetitle 
+    \par}%
+   \vfill
+%  \vskip 6em
+    {\normalfont\normalcolor\bfseries
+	\large
+	Dissertation \\
+	\large
+%	im Studiengang Physik\\
+	zur\\
+	Erlangung des akademischen Grades\\
+	doctor rerum naturalium (Dr. rer. nat.)\\ 
+	der Mathematisch-Naturwissenschaftlichen Fakultät\\
+	der Universität Rostock
+    \par}%
+\end{center}\par
+%\vfill
+\vspace*{2.5cm}
+\noindent\begin{minipage}[b]{\textwidth}
+{\bf
+  \noindent vorgelegt von\\
+  Kirstin Schulz, geb.~am 10.~Januar 1988 in 
+Clausthal-Zellerfeld\\
+
+  \begin{tabbing}
+  Betreuer und 1.~Pr\"ufer :  \= PD Dr. Lars Umlauf, Leibniz Institut für 
+Ostseeforschung Warnemünde\\
+  2.~Pr\"ufer: \> ???, Universität Rostock \\
+  \end{tabbing}
+
+  \noindent Rostock, den  1.~April 2010
+  }
+\end{minipage}
+
+
