@@ -5,7 +5,9 @@
 
 \section{Evolution of waves}
 
-\subsection{Generation}
+\subsection{Wave Generation by Wind}
+
+
 
 \subsection{Wave-wave Interaction}
 
@@ -14,6 +16,48 @@
 \section{Wave modeling}
 
 \subsection{Third Generation Wave Model SWAN}
+
+The open source wave model SWAN, an acronym for \textbf{S}imulating \textbf{WA}ves \textbf{N}earshore, is a wave model optimized for applications in coastal waters. As the spatial resolution of model domains in coastal regions is often very fine to capture smaller features in topography, SWAN has an implicit propagation scheme implemented, assuring numerical stability even for timesteps, that violate the CFL criterion. 
+
+The central equation that is solved for every timestep at every grid point is the action balance equation, that accounts not only for the energy distributions in the wave frequency space but also for frequency shifts by wave-current interaction. In the absence of currents, this action balance equation reduces to the energy balance equation, that describes how energy $E=E(f, \theta; x,y,t)$ is distributed among frequency ($f$) and wave direction ($\theta$):
+
+\begin{equation}
+ \frac{\partial E}{\partial t} + \frac{\partial c_{g,x} E}{\partial x} + \frac{ \partial c_{g,y} E}{\partial y} + \frac{\partial c_{\theta} E}{\partial t} = S_{in} + S_{nl} + S_{wc},
+\end{equation}
+
+where the source terms on the right hand side refer to energy input by wind, nonlinear wave -- wave interaction and energy dissipation by whitecapping. $t, x ,y$ are time and spatial directions, $\theta$ is the direction of wave energy propagation and $c_{g,x}, c_{g,y}$ are the group speed in each spatial direction. 
+
+\textcolor{red}{As currents are neglected in the Baltic Sea setup described below, the equations implemented in SWAN will be discussed using the energy balance equation in the following. }
+
+\subsubsection{Wave generation by wind}
+
+Wind data is provided to the model as the wind speed and direction at 10 m elevation, $U_{10}$. This value is converted to a friction velocity via
+\begin{equation}
+ u_\ast^2 = C_D U_{10}^2
+\end{equation}
+where the wind drag coefficient is calculated via
+\begin{equation}
+ C_D = 
+ \begin{cases}
+  1.2875 \cdot 10^{-3} & \text{for } U_{10} \textless 7.5 \text{ m s}^{-1} \\
+  (0.8 + 0.065 \cdot U_{10}) \cdot 10^{-3} & \text{for } U_{10} \ge 7.5 \text{ m s}^{-1} \\
+ \end{cases}
+\end{equation}
+The source term for energy input by wind includes two mechanisms:
+\begin{equation}
+ S_{in} (f, \theta) = \alpha + \beta E(f,\theta),
+\end{equation}
+where $\alpha$ is the initial wave growth, parameterized with the following empirical expression by Cavaleri and Malanotte--Rizzoli
+\begin{equation}
+ \alpha = 
+ \begin{cases}
+  \dfrac{1.5 \cdot 10^{-3}}{g^2 2 \pi} \left(u_\ast \cos{(\theta - \theta_{wind})}\right)^4 G & \text{for } |\theta - \theta_{wind}| \le 90^\circ  \\
+  0 & \text{for } |\theta - \theta_{wind}| \textgreater 90^\circ  \\
+ \end{cases}
+\end{equation}
+with $G$ being a cut-off function to avoid wave growth at frequencies below the Pierson--Moskowitz frequency and $\theta_{wind}$ being the wind direction. Another approach for the initial wave growth using the JONSWAP spectrum is implemented and can be chosen in SWAN.
+
+\textcolor{red}{WELCHES HAT RONJA DA fuer alpha und beta???}
 
 \subsection{Wave Model Setup for the Baltic Sea}
 
