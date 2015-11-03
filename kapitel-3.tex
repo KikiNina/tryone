@@ -33,16 +33,14 @@ where the source terms on the right hand side refer to energy input by wind, non
 
 Wind data is provided to the model as the wind speed and direction at 10 m elevation, $U_{10}$. This value is converted to a friction velocity via
 \begin{equation}
- u_\ast^2 = C_D U_{10}^2
+ u_\ast^2 = C_D U_{10}^2.
 \end{equation}
-where the wind drag coefficient is calculated via
+Before version 41.01 of SWAN, the wind drag coefficient was linearly dependent on the wind speed with an imposed lower limit. This formulation was found to overestimate $C_D$ for strong winds. Therefore, \cite{zijlema2012} fitted a second-order polynomial to nearly 5000 observed wind drag coefficients in dependence of the wind speed and came up with 
 \begin{equation}
- C_D = 
- \begin{cases}
-  1.2875 \cdot 10^{-3} & \text{for } U_{10} \textless 7.5 \text{ m s}^{-1} \\
-  (0.8 + 0.065 \cdot U_{10}) \cdot 10^{-3} & \text{for } U_{10} \ge 7.5 \text{ m s}^{-1} \\
- \end{cases}
+ C_D = \left( 0.55 + 2.97 \dfrac{U_{10}}{U_{ref}} - 1.49 \left( \dfrac{U_{10}}{U_{ref}} \right)^2 \right) \times 10^{-3} ,
 \end{equation}
+where $U_{ref} = 31.5 \, ms^{-1}$ is the wind speed at which $C_D$ is maximal.
+
 The source term for energy input by wind includes two mechanisms:
 \begin{equation}
  S_{in} (f, \theta) = \alpha + \beta E(f,\theta),
@@ -55,9 +53,15 @@ where $\alpha$ is the initial wave growth, parameterized with the following empi
   0 & \text{for } |\theta - \theta_{wind}| \textgreater 90^\circ  \\
  \end{cases}
 \end{equation}
-with $G$ being a cut-off function to avoid wave growth at frequencies below the Pierson--Moskowitz frequency and $\theta_{wind}$ being the wind direction. Another approach for the initial wave growth using the JONSWAP spectrum is implemented and can be chosen in SWAN.
+where $G$ is a cut-off function to avoid wave growth at frequencies below the Pierson--Moskowitz frequency, $g$ the gravitational acceleration and $\theta_{wind}$ is the wind direction. 
 
-\textcolor{red}{WELCHES HAT RONJA DA fuer alpha und beta???}
+Another implemented approach to quantify the initial wave growth is to impose the JONSWAP spectrum for young sea states. The non-dimensional peak wave frequency $\tilde{f}_{peak} = f_{peak} U_{10} / g$ is thereby derived using the spatial step size at each point as fetch $F$ with an empirical equation by \cite{kahma1992} for short fetch lengths:
+\begin{equation}
+ \tilde{f}_{peak} = 2.18 \tilde{F}^{-0.27},
+\end{equation}
+where $\tilde{F} = g F / U_{10}^2$. All other coefficients in the JONSWAP energy spectrum equation are derived from this peak frequency \citep[][]{holthuijsen2007}.
+
+
 
 \subsection{Wave Model Setup for the Baltic Sea}
 
