@@ -19,15 +19,17 @@
 
 The open source wave model SWAN, an acronym for \textbf{S}imulating \textbf{WA}ves \textbf{N}earshore, is a wave model optimized for applications in coastal waters. As the spatial resolution of model domains in coastal regions is often very fine to capture smaller features in topography, SWAN has an implicit propagation scheme implemented, assuring numerical stability even for timesteps, that violate the CFL criterion. 
 
-The central equation that is solved for every timestep at every grid point is the action balance equation, that accounts not only for the energy distributions in the wave frequency space but also for frequency shifts by wave-current interaction. In the absence of currents, this action balance equation reduces to the energy balance equation, that describes how energy $E=E(f, \theta; x,y,t)$ is distributed among frequency ($f$) and wave direction ($\theta$):
-
-\begin{equation}
- \frac{\partial E}{\partial t} + \frac{\partial c_{g,x} E}{\partial x} + \frac{ \partial c_{g,y} E}{\partial y} + \frac{\partial c_{\theta} E}{\partial t} = S_{in} + S_{nl} + S_{wc},
+The central equation that is solved for every timestep at every grid point is the action balance equation, that accounts not only for the energy distributions in the wave frequency space but also for frequency shifts by wave-current interaction. The action density $N=N(\sigma,\theta; x,y,t)$ is therefore dependend on the relative radian frequency $\sigma$, which is the shifted frequency in a system moving with the current:
+\begin{equation}\label{ebe}
+ \frac{\partial N}{\partial t} + \frac{\partial c_{g,x} N}{\partial x} + \frac{ \partial c_{g,y} N}{\partial y} + \frac{\partial c_{\theta} N}{\partial t} + \frac{\partial c_{\sigma} N}{\partial \sigma}= \frac{S_{in} + S_{nl} + S_{wc}}{\sigma},
 \end{equation}
+where the source terms on the right hand side refers to energy input by wind, nonlinear wave -- wave interaction and energy dissipation by whitecapping. $t, x ,y$ are time and spatial directions, $\theta$ is the direction of wave energy propagation and $c_{g,x}, c_{g,y}$ are the group speed in each spatial direction. The fifth term on the left had side represents the frequency shift by ambient currents.
 
-where the source terms on the right hand side refer to energy input by wind, nonlinear wave -- wave interaction and energy dissipation by whitecapping. $t, x ,y$ are time and spatial directions, $\theta$ is the direction of wave energy propagation and $c_{g,x}, c_{g,y}$ are the group speed in each spatial direction. 
-
-\textcolor{red}{As currents are neglected in the Baltic Sea setup described below, the equations implemented in SWAN will be discussed using the energy balance equation in the following. }
+In the absence of currents, this action balance equation reduces to the energy balance equation.
+\begin{equation}\label{ebe}
+ \frac{\partial E}{\partial t} + \frac{\partial c_{g,x} E}{\partial x} + \frac{ \partial c_{g,y} E}{\partial y} + \frac{\partial c_{\theta} E}{\partial t} = S_{in} + S_{nl} + S_{wc}.
+\end{equation}
+All equations in the following will be noted, consistent with the action balance equation, in terms of the relative radian frequency $\sigma$. Although various formulations for the different mechanisms below are implemented in SWAN, only the ones used in the setup for the Baltic Sea in chapter \ref{balticswan} are described.
 
 \subsubsection{Wave generation by wind}
 
@@ -39,10 +41,10 @@ Before version 41.01 of SWAN, the wind drag coefficient was linearly dependent o
 \begin{equation}
  C_D = \left( 0.55 + 2.97 \dfrac{U_{10}}{U_{ref}} - 1.49 \left( \dfrac{U_{10}}{U_{ref}} \right)^2 \right) \times 10^{-3} ,
 \end{equation}
-where $U_{ref} = 31.5 \, ms^{-1}$ is the wind speed at which $C_D$ is maximal.
+where $U_{ref} = 31.5 \, \text{m s}^{-1}$ is the wind speed at which $C_D$ is maximal.
 
 The source term for energy input by wind includes two mechanisms:
-\begin{equation}
+\begin{equation}\label{gen}
  S_{in} (f, \theta) = \alpha + \beta E(f,\theta),
 \end{equation}
 where $\alpha$ is the initial wave growth, parameterized with the following empirical expression by Cavaleri and Malanotte--Rizzoli
@@ -59,13 +61,51 @@ Another implemented approach to quantify the initial wave growth is to impose th
 \begin{equation}
  \tilde{f}_{peak} = 2.18 \tilde{F}^{-0.27},
 \end{equation}
-where $\tilde{F} = g F / U_{10}^2$. All other coefficients in the JONSWAP energy spectrum equation are derived from this peak frequency \citep[][]{holthuijsen2007}.
+where $\tilde{F} = g F / U_{10}^2$. All other coefficients in the JONSWAP energy spectrum equation are derived from this peak frequency \citep[][]{holthuijsen2007}, and  wave directions are assumed to be $\cos^2$ distributed.
+
+For the exponential wave growth term $\beta$ in \eqref{gen} the classical expression of \citep[][]{komen1984} is used:
+\begin{equation}
+ \beta = \max \{ 0,0.25 \frac{\rho_{air}}{\rho_{water}} \left[28 \frac{u_\ast}{c} \cos(\theta - \theta_{wind}) -1 \right] \} \sigma,
+\end{equation}
+with the phase velocity $c$ and $\rho_{air}$ and $\rho_{water}$ the densities of air and water.
+
+\subsubsection{Nonlinear wave -- wave interaction}
+
+Quadruplet wave -- wave interaction is calculated with the discrete--interaction approximation (DIA) by \citep[][]{hasselmann1985}. Only two constellations of wave quadruplets are considered to interact. The frequencies must fulfill
+\begin{align*}
+ \sigma_1 &= \sigma_2 = \sigma \\
+ \sigma_3 &= 1.25 \sigma = \sigma^+ \\
+ \sigma_4 &= 0.75 \sigma = \sigma^- .\\
+\end{align*}
+The wave directions must be equal for the waves with frequency $\sigma$, while the waves with frequencies $\sigma_3$ and $\sigma_4$ lie at angles of $\theta_1 = -11.5^\circ \; \left[ \text{or } \theta_1 = 11.5^\circ \right]$ and $\theta_2 = 33.6^\circ \; \left[ \text{or } \theta_2 = -33.6^\circ \right]$  to them. The contribution for each quadruplet to the source term $S_{nl}$ in Eq. (\ref{ebe}) is:
+\begin{equation}
+ S_{nl4}^\ast (\sigma, \theta) = 2 \delta S_{nl4} (\alpha_1 \sigma, \theta) - \delta S_{nl4} (\alpha_2 \sigma, \theta) - \delta S_{nl4} (\alpha_3 \sigma, \theta),
+\end{equation}
+where for $i \in \{1,2,3\}$
+\begin{align*}
+ \delta S_{nl4} ( \alpha_i \sigma, \theta ) = & 2.12 \cdot 10^{(-4)} \sigma^{11} \cdot [ ( 0.41 E(\alpha_i \sigma^+, \theta)E^2(\alpha_i \sigma, \theta) \\
+ &+ 3.16 E(\alpha_i \sigma^-, \theta) ) - 54.6 E(\alpha_i \sigma, \theta) E(\alpha_i \sigma^+, \theta) E^2(\alpha_i \sigma^-, \theta) ] .
+\end{align*}
+The coefficients are $\alpha_1 = 1, \, \alpha_2 = 1.25, \, \alpha_3 = 0.75$. 
+
+The above holds for infinite water depth and must be muliplied with a scaling factor 
+\begin{equation}
+ R ( \tilde{k}d ) = \max \{ 1+ \frac{22}{3}\tilde{k}d \left( 1-\frac{6}{7} \tilde{k}d \right) \times \exp(-1.25 \tilde{k}d) , 4.43 \} ,
+\end{equation}
+depending on the mean wave number $\tilde{k}$ and the the water depth $d$ to obtain the finite depth contribution to the source term for nonlinear wave -- wave interaction.
+
+\subsubsection{Dissipation}
+
+Wave energy is dissipated by white -- capping. The representation of this process originates from \citep[][]{hasselmann1974}:
+\begin{equation}
+ S_{wc} (\sigma, \theta ) = - 2.36 \cdot 10^{-5} \frac{k}{\tilde{k}} \left( \frac{\tilde{s}}{\tilde{s}_{PM}} \right)^4 \frac{\tilde{\sigma}}{\tilde{k}} k E(\sigma, \theta),
+\end{equation}
+with $\tilde{s} = \tilde{k} \sqrt{m_0}$ being the overall wave steepness, $k$ the wave number, $\tilde{\sigma}$ the mean wave frequency and $\tilde{s}_{PM} = \sqrt{3.02 \times 10^{-3}}$ the overall wave steepness of the Pierson -- Moskowitz spectrum.
 
 
+\subsubsection{Wave Model Setup for the Baltic Sea}\label{balticswan}
 
-\subsection{Wave Model Setup for the Baltic Sea}
-
-\section{Wave climate of the Baltic Sea}
+\section{Wave climate of the Baltic Sea}	
 
 \subsection{Observations and Model Outcome}
 
