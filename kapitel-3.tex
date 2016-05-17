@@ -103,7 +103,18 @@ Wave energy is dissipated by white -- capping. The representation of this proces
 with $\tilde{s} = \tilde{k} \sqrt{m_0}$ being the overall wave steepness, $k$ the wave number, $\tilde{\sigma}$ the mean wave frequency and $\tilde{s}_{PM} = \sqrt{3.02 \times 10^{-3}}$ the overall wave steepness of the Pierson -- Moskowitz spectrum.
 
 
-\subsubsection{Wave Model Setup for the Baltic Sea}\label{balticswan}
+\subsubsection{Wave model setup for the Baltic Sea}\label{balticswan}
+
+The SWAN wave model version 41.01 was set up for the Baltic Sea including a nesting in the area of the German coastal sea. For the whole Baltic Sea, a grid resolution of $0.5^\circ \times 0.1^\circ $ in Latitude and Longitude was chosen in a domain reaching from $53.5^\circ \text{N } 9^\circ \text{E}$ to $66^\circ \text{N } 31^\circ \text{E}$. This includes the Kattegat, the passage from the Baltic to the North Sea, where boundary conditions were prescribed in the east: A constant JONSWAP spectrum with a wave height of $1$ m, a period of $5$ s and peak wave direction of $90^\circ$ with a high directional spreading. The passage from the North to the Baltic sea is very shallow, so the boundary conditions have negligible influence on the model outcome. Wave frequency range was set to $0.1 to 1.8 \text{ Hz}$, which mirrors the actual wave frequencies in the Baltic Sea \citep[][]{balticsea}, with a resolution of $42$ frequency bins. Computations included a spin-up time of $10$ days, sufficient for wave modeling and were performed for the years 2013 and 2014. The model was forced by wind data from the German Weather Service (DWD), the computational time step was $1$ hour (note that the propagation scheme implemented in SWAN is implicit, so the time step is not restricted by numerical issues). 
+
+The nesting area reached from $53.5^\circ \text{N } 10^\circ \text{E}$ to $55.5^\circ \text{N } 15^\circ \text{E}$, including the Western German coastal seas. Spatial resolution was $0.01^\circ \times 0.025^\circ $ in Latitude and Longitude and the computational time step was set to $15$ minutes. Boundary conditions came from the Baltic Sea model and all parameters were left unchanged.
+
+In the context of a Mater Thesis \citep[][]{masterarbeitronja}, the model setup for 2013 was tested for numerical convergence and compared to measured data on several locations in the Baltic Sea. Wave parameters like significant wave height were in good agreement with obtained data, even in areas with complex topography.
+
+\begin{figure}[h]
+% \includegraphics[width=7cm]{bilder/arkona.pdf}
+ \caption{Significant wave height calculated with the SWAN wave model and measured wave height from the Arkona wave rider buoy.}
+\end{figure}
 
 \section{Wave climate of the Baltic Sea}	
 
