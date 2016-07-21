@@ -12,9 +12,9 @@ bodies. They generate surface mixed layers and influence the near bed dynamics
 even at considerable water depths. In shallow areas, wave induced maximal 
 bottom stress mainly dominates over current induced turbulence 
 \citep[][]{jonsson2004}. Consequently, waves play a 
-mojor role in sediment transport and distribution in the Baltic Sea.
+major role in sediment transport and distribution in the Baltic Sea.
 
-In this chapter, a brief description of wind wave properties und processes will 
+In this chapter, a brief description of wind wave properties and processes will 
 be given, followed by a discussion of a state of the art wave model, which was 
 set up for the Baltic Sea. Finally, the model outcome and its implications on 
 the Baltic Sea sediments are analyzed.
@@ -51,7 +51,7 @@ characterization is, however, the variance spectrum $f_i \rightarrow E\{a_i^2
 \slash 2\}$, as the variance is proportional to the wave energy contained in 
 each frequency, with the proportionality constant $\rho g$. Here, $\rho$ denotes 
 density of the water and $g$ the gravitational acceleration. By scaling the 
-variance of each discrete frequeny with the frequency bin $\Delta f$ (i.e. the 
+variance of each discrete frequency with the frequency bin $\Delta f$ (i.e. the 
 size of the frequency resolution) and formally assuming infinitely small 
 frequency bins, the variance density spectrum is obtained. Multiplied by the 
 factor $\rho g$, this is the energy density spectrum:
@@ -65,28 +65,72 @@ frequency, $E(f)$ reduces to a delta function. For more irregular waves, the
 energy density spectrum broadens. 
 
 The shape of this spectrum is not at all arbitrary, but was found to have 
-rather uniform characteristics for some conditions. One of this 
-characteristic shapes is the Pierson-Moskowitz spectrum. Regarding a developing 
-sea state in deep water, it is known from observations, that the spectrum 
-evolves from higher frequencies to low frequencies. From a dimensional argument 
-(assuming that wave breaking limits the spectra on the high frequency side, and 
-that this process is determined only by the gravitational acceleration and the 
-wave frequency itself), the spectra for waves with a frequency higher than some 
-peak frequency was found to be proportional to $E(f) \sim g^2f^{-5}$.
+rather uniform characteristics under similar conditions. For a fully 
+developed sea state, the Pierson-Moskowitz (PM) spectrum was derived: 
+\begin{equation}
+ \label{PMspectrum}
+ E_{PM}(f) = \underbrace{\alpha_{PM}g^2(2 
+\pi)^{-4}f^{-5}}_{f^{-5}\text{-tail}} \underbrace{\exp \left[ - \frac{5}{4} 
+\left( \frac{f}{f_{PM}} \right)^{-4} \right]}_{\text{low-freq. cut-off}}.
+\end{equation}
+The $f^{-5}$ - tail comes from a dimensional argument under the assumption, 
+that wave breaking limits the spectra on the high frequency side, and that this 
+process is determined only by the gravitational acceleration and the wave 
+frequency itself. Therefore, $E(f) \sim g^2f^{-5}$ at high frequencies. At a 
+peak frequency $f_{PM}$, depending on the wind speed, a smooth low-frequency 
+cut-off is imposed. From observations, an energy scale of $\alpha_{PM} = 
+0.0081$ was derived.
 
-directional spectrum
+The PM spectrum describes a fully developed sea state, i.e. 
+constant wind conditions being present until sea state becomes stationary and 
+no fetch limitation is assumed. Observed sea states rarely fulfill these 
+assumptions, and during an extensive study, the JONSWAP (Joint North Sea wave 
+Project, \cite{hasselmann1974}) spectrum for young sea states was designed:
+\begin{equation}
+ \label{JONSWAPspectrum}
+ E_{JONSWAP}(f) = \underbrace{\alpha g^2(2 
+\pi)^{-4}f^{-5} \exp \left[ - \frac{5}{4} \left( \frac{f}{f_{\text{peak}}} 
+\right)^{-4} \right]}_{\text{PM shape}} \underbrace{\gamma^{\exp \left[ - 
+\frac{1}{2} \left( \frac{f}{\sigma f_{\text{peak}}} \right)^2 \right]}}_{G(f)}.
+\end{equation}
+Here, the PM spectrum was down-scaled with a higher peak frequency 
+$f_\text{peak}$ and a smaller energy scale $\alpha$ (which depends on the 
+$f_\text{peak}$ now) to maintain the shape of the PM spectrum. $G(f)$ is a peak 
+enhancement function, which amplifies and narrows the spectrum around the peak 
+frequency. Hereby, $\gamma$ and $\sigma$ control height and width of the peak, 
+respectively. 
 
-\section{Wave modeling}
+The JONSWAP spectrum was found to be a good generalization of observed wave 
+energy spectra, not only for idealized fetch-limited conditions but also for 
+arbitrary wind conditions. Reason for that is that wave-wave interaction 
+distributes energy among wave frequencies in a way that stabilizes the shape of 
+the JONSWAP spectrum. 
 
-\subsection{Third Generation Wave Model SWAN}
+The energy spectra discussed above are one dimensional, only depending on wave 
+frequency. No information about the propagation direction of waves are 
+included. To completely describe a sea state, the energy spectrum $E(f,\theta)$ 
+has to be extended by informations about hoe energy is distributed among waves 
+traveling in propagation direction $\theta$.
+
+\section{Third Generation Wave Model SWAN}
 
 The open source wave model SWAN, an acronym for \textbf{S}imulating \textbf{WA}ves \textbf{N}earshore, is a wave model optimized for applications in coastal waters. As the spatial resolution of model domains in coastal regions is often very fine to capture smaller features in topography, SWAN has an implicit propagation scheme implemented, assuring numerical stability even for timesteps, that violate the CFL criterion. 
 
-The central equation that is solved for every timestep at every grid point is the action balance equation, that accounts not only for the energy distributions in the wave frequency space but also for frequency shifts by wave-current interaction. The action density $N=N(\sigma,\theta; x,y,t)$ is therefore dependend on the relative radian frequency $\sigma$, which is the shifted frequency in a system moving with the current:
+The central equation that is solved for every timestep at every grid point is 
+the action balance equation, that accounts not only for the energy distributions 
+in the wave frequency space but also for frequency shifts by wave-current 
+interaction. The action density $N=N(\sigma,\theta; x,y,t)$ is therefore 
+dependent on the relative radian frequency $\sigma$, which is the shifted 
+frequency in a system moving with the current:
 \begin{equation}\label{ebe}
  \frac{\partial N}{\partial t} + \frac{\partial c_{g,x} N}{\partial x} + \frac{ \partial c_{g,y} N}{\partial y} + \frac{\partial c_{\theta} N}{\partial t} + \frac{\partial c_{\sigma} N}{\partial \sigma}= \frac{S_{in} + S_{nl} + S_{wc}}{\sigma},
 \end{equation}
-where the source terms on the right hand side refers to energy input by wind, nonlinear wave -- wave interaction and energy dissipation by whitecapping. $t, x ,y$ are time and spatial directions, $\theta$ is the direction of wave energy propagation and $c_{g,x}, c_{g,y}$ are the group speed in each spatial direction. The fifth term on the left had side represents the frequency shift by ambient currents.
+where the source terms on the right hand side refers to energy input by wind, 
+nonlinear wave -- wave interaction and energy dissipation by white capping. $t, 
+x ,y$ are time and spatial directions, $\theta$ is the direction of wave energy 
+propagation and $c_{g,x}, c_{g,y}$ are the group speed in each spatial 
+direction. The fifth term on the left had side represents the frequency shift by 
+ambient currents.
 
 In the absence of currents, this action balance equation reduces to the energy balance equation.
 \begin{equation}\label{ebe}
@@ -94,7 +138,7 @@ In the absence of currents, this action balance equation reduces to the energy b
 \end{equation}
 All equations in the following will be noted, consistent with the action balance equation, in terms of the relative radian frequency $\sigma$. Although various formulations for the different mechanisms below are implemented in SWAN, only the ones used in the setup for the Baltic Sea in chapter \ref{balticswan} are described.
 
-\subsubsection{Wave generation by wind}
+\subsection{Wave generation by wind}
 
 Wind data is provided to the model as the wind speed and direction at 10 m elevation, $U_{10}$. This value is converted to a friction velocity via
 \begin{equation}
@@ -132,7 +176,7 @@ For the exponential wave growth term $\beta$ in \eqref{gen} the classical expres
 \end{equation}
 with the phase velocity $c$ and $\rho_{air}$ and $\rho_{water}$ the densities of air and water.
 
-\subsubsection{Nonlinear wave -- wave interaction}
+\subsection{Nonlinear wave -- wave interaction}
 
 Quadruplet wave -- wave interaction is calculated with the discrete--interaction approximation (DIA) by \citep[][]{hasselmann1985}. Only two constellations of wave quadruplets are considered to interact. The frequencies must fulfill
 \begin{align*}
@@ -151,13 +195,14 @@ where for $i \in \{1,2,3\}$
 \end{align*}
 The coefficients are $\alpha_1 = 1, \, \alpha_2 = 1.25, \, \alpha_3 = 0.75$. 
 
-The above holds for infinite water depth and must be muliplied with a scaling factor 
+The above holds for infinite water depth and must be multiplied with a scaling 
+factor 
 \begin{equation}
  R ( \tilde{k}d ) = \max \{ 1+ \frac{22}{3}\tilde{k}d \left( 1-\frac{6}{7} \tilde{k}d \right) \times \exp(-1.25 \tilde{k}d) , 4.43 \} ,
 \end{equation}
 depending on the mean wave number $\tilde{k}$ and the the water depth $d$ to obtain the finite depth contribution to the source term for nonlinear wave -- wave interaction.
 
-\subsubsection{Dissipation}
+\subsection{Dissipation}
 
 Wave energy is dissipated by white -- capping. The representation of this process originates from \citep[][]{hasselmann1974}:
 \begin{equation}
@@ -166,7 +211,7 @@ Wave energy is dissipated by white -- capping. The representation of this proces
 with $\tilde{s} = \tilde{k} \sqrt{m_0}$ being the overall wave steepness, $k$ the wave number, $\tilde{\sigma}$ the mean wave frequency and $\tilde{s}_{PM} = \sqrt{3.02 \times 10^{-3}}$ the overall wave steepness of the Pierson -- Moskowitz spectrum.
 
 
-\subsubsection{Wave model setup for the Baltic Sea}\label{balticswan}
+\subsection{Wave model setup for the Baltic Sea}\label{balticswan}
 
 The SWAN wave model version 41.01 was set up for the Baltic Sea including a nesting in the area of the German coastal sea. For the whole Baltic Sea, a grid resolution of $0.5^\circ \times 0.1^\circ $ in Latitude and Longitude was chosen in a domain reaching from $53.5^\circ \text{N } 9^\circ \text{E}$ to $66^\circ \text{N } 31^\circ \text{E}$. This includes the Kattegat, the passage from the Baltic to the North Sea, where boundary conditions were prescribed in the east: A constant JONSWAP spectrum with a wave height of $1$ m, a period of $5$ s and peak wave direction of $90^\circ$ with a high directional spreading. The passage from the North to the Baltic sea is very shallow, so the boundary conditions have negligible influence on the model outcome. Wave frequency range was set to $0.1 to 1.8 \text{ Hz}$, which mirrors the actual wave frequencies in the Baltic Sea \citep[][]{balticsea}, with a resolution of $42$ frequency bins. Computations included a spin-up time of $10$ days, sufficient for wave modeling and were performed for the years 2013 and 2014. The model was forced by wind data from the German Weather Service (DWD), the computational time step was $1$ hour (note that the propagation scheme implemented in SWAN is implicit, so the time step is not restricted by numerical issues). 
 
