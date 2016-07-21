@@ -1,17 +1,80 @@
-\chapter{Surface gravity waves}
+\chapter{Surface Gravity Waves}
 \label{kap-waves}
+The spectrum of vertical motions of the ocean surface consists of several types 
+of waves, covering a broad frequency range.  Wind generated 
+waves have periods around $0.25 - 30\,\text{s}$. Locally generated waves, called 
+wind sea, are irregular and short crested. While propagating away from the 
+generation area, they become long crested and more regular, their periods 
+increase. These waves are called swell \citep[][]{holthuijsen2007}. 
 
-\section{Description}
+Wind generated waves are a main contributor to the energetics in shallow water 
+bodies. They generate surface mixed layers and influence the near bed dynamics 
+even at considerable water depths. In shallow areas, wave induced maximal 
+bottom stress mainly dominates over current induced turbulence 
+\citep[][]{jonsson2004}. Consequently, waves play a 
+mojor role in sediment transport and distribution in the Baltic Sea.
+
+In this chapter, a brief description of wind wave properties und processes will 
+be given, followed by a discussion of a state of the art wave model, which was 
+set up for the Baltic Sea. Finally, the model outcome and its implications on 
+the Baltic Sea sediments are analyzed.
 
 \section{Evolution of waves}
 
 \subsection{Wave Generation by Wind}
 
-
-
 \subsection{Wave-wave Interaction}
 
 \subsection{Dissipation of Energy}
+
+\section{Sea State Description}
+The most important method 
+to describe a sea state is to treat ocean waves as a stochastic process to 
+calculate a wave spectrum, from which parameters like wave height are derived. 
+One possibility therefore is the random-phase/amplitude model, described in 
+detail in \cite{holthuijsen2007}: The time series of surface elevation $ \eta 
+(t)$ is assumed to be a superposition of $N$ sinusoidal waves, each with a 
+distinct frequency $f_i$, amplitude $a_i$ and phase $\alpha_i$, written as
+\begin{equation}
+ \label{sinussum}
+ \eta(t) = \sum_{i=1}^N a_i \cos (2\pi f_i t + \alpha_i).
+\end{equation}
+Considering $a_i$ and $\alpha_i$ to be independent random variables, 
+probability density functions for both can be derived from observations. For 
+waves in sufficiently deep water which are not too steep, it was found that the 
+phase is uniformly distributed (and can therefore be omitted in the wave 
+spectrum), while the amplitude is Rayleigh distributed with expected value 
+$E\{a_i\} = \mu_i$ for each frequency $f_i$. The function $f_i \rightarrow 
+E\{a_i\}$ is called the amplitude spectrum and already contains all 
+(non-directional) information of the sea state. A more meaningful 
+characterization is, however, the variance spectrum $f_i \rightarrow E\{a_i^2 
+\slash 2\}$, as the variance is proportional to the wave energy contained in 
+each frequency, with the proportionality constant $\rho g$. Here, $\rho$ denotes 
+density of the water and $g$ the gravitational acceleration. By scaling the 
+variance of each discrete frequeny with the frequency bin $\Delta f$ (i.e. the 
+size of the frequency resolution) and formally assuming infinitely small 
+frequency bins, the variance density spectrum is obtained. Multiplied by the 
+factor $\rho g$, this is the energy density spectrum:
+\begin{equation}
+ \label{vardensspec}
+ E(f) = \rho g \lim_{\Delta f \rightarrow 0} \frac{1}{\Delta f} E\{\frac{1}{2} 
+a_i^2\}.
+\end{equation}
+For a harmonic wave, i.e. all wave energy is contained in one distinct 
+frequency, $E(f)$ reduces to a delta function. For more irregular waves, the 
+energy density spectrum broadens. 
+
+The shape of this spectrum is not at all arbitrary, but was found to have 
+rather uniform characteristics for some conditions. One of this 
+characteristic shapes is the Pierson-Moskowitz spectrum. Regarding a developing 
+sea state in deep water, it is known from observations, that the spectrum 
+evolves from higher frequencies to low frequencies. From a dimensional argument 
+(assuming that wave breaking limits the spectra on the high frequency side, and 
+that this process is determined only by the gravitational acceleration and the 
+wave frequency itself), the spectra for waves with a frequency higher than some 
+peak frequency was found to be proportional to $E(f) \sim g^2f^{-5}$.
+
+directional spectrum
 
 \section{Wave modeling}
 
@@ -109,7 +172,7 @@ The SWAN wave model version 41.01 was set up for the Baltic Sea including a nest
 
 The nesting area reached from $53.5^\circ \text{N } 10^\circ \text{E}$ to $55.5^\circ \text{N } 15^\circ \text{E}$, including the Western German coastal seas. Spatial resolution was $0.01^\circ \times 0.025^\circ $ in Latitude and Longitude and the computational time step was set to $15$ minutes. Boundary conditions came from the Baltic Sea model and all parameters were left unchanged.
 
-In the context of a Mater Thesis \citep[][]{masterarbeitronja}, the model setup for 2013 was tested for numerical convergence and compared to measured data on several locations in the Baltic Sea. Wave parameters like significant wave height were in good agreement with obtained data, even in areas with complex topography.
+In the context of a Master Thesis \citep[][]{masterarbeitronja}, the model setup for 2013 was tested for numerical convergence and compared to measured data on several locations in the Baltic Sea. Wave parameters like significant wave height were in good agreement with obtained data, even in areas with complex topography.
 
 \begin{figure}[h]
 % \includegraphics[width=7cm]{bilder/arkona.pdf}
