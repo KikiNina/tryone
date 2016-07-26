@@ -315,18 +315,25 @@ Longitude and the computational time step was set to $15$ minutes. Boundary
 conditions came from the Baltic Sea model and all parameters were left 
 unchanged.
 
+In \fig{verify} the significant wave height calculated with the wave model was 
+compared to data obtained with a wave rider buoy. The significant wave height 
+is defined as the average wave height of the highest one-third of the waves. 
+This value matches the visually observed wave height best and can be calculated 
+from the zeroth-order moment if the variance density spectrum $m_0$ via 
+$H_{sign} = 4 \sqrt{m_0}$.
+\begin{figure}[ht]
+ \includegraphics[width=9cm]{bilder/januar.pdf}
+ \caption{Significant wave height calculated with the SWAN wave model (HR 
+refers to the high resolved nested run) and measured wave height from the 
+Arkona wave rider buoy.\label{verify}}
+\end{figure}
 
-In the context of a Master Thesis \citep[][]{masterarbeitronja}, the model setup 
-for 2013 was tested for numerical convergence and compared to measured data on 
+In the context of a Master Thesis \citep[][]{masterarbeitronja}, the model 
+setup for 2013 (still using the previous version SWAN 40.91AB) was 
+extensively tested for numerical convergence and compared to measured data on 
 several locations in the Baltic Sea. Wave parameters like significant wave 
 height were in good agreement with obtained data, even in areas with complex 
 topography.
-
-
-\begin{figure}[h]
-% \includegraphics[width=7cm]{bilder/arkona.pdf}
- \caption{Significant wave height calculated with the SWAN wave model and measured wave height from the Arkona wave rider buoy.}
-\end{figure}
 
 \section{Wave climate of the Baltic Sea}	
 
