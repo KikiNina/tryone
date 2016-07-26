@@ -19,13 +19,83 @@ be given, followed by a discussion of a state of the art wave model, which was
 set up for the Baltic Sea. Finally, the model outcome and its implications on 
 the Baltic Sea sediments are analyzed.
 
-\section{Evolution of waves}
+\section{Evolution of Waves}
 
 \subsection{Wave Generation by Wind}
+Energy is transferred from wind to the waves by wind-induced surface pressure. 
+Assuming a harmonic wave propagating in the same direction as the (faster) wind 
+blows. The wind field near the water surface is disturbed as indicated in 
+\fig{windgen}. Higher air pressure is induced at the windward site of the wave 
+crest, where the water surface moves downwards while the wave is propagating, 
+and vice versa low air pressure at the leeward site of the wave crest, where 
+the sea surface is moving upwards.
+\begin{figure}[ht]
+
+ \includegraphics[width=10cm]{bilder/windpressure_sw.png}
+ \caption{Wind-pressure distortions over a propagating harmonic wave. Figure 
+courtesy \cite{holthuijsen2007}. \label{windgen}}
+\end{figure}
+
+This way, the (wave-induced) air pressure distortions amplify the vertical 
+movement of the water surface, transfering energy from wind to the wave field. 
+This process enforces itself as it is more effective for higher waves. Wave 
+growth ends when the wave propagation speed approaches wind speed. It is not 
+well understood how initial distortions of the sea surface are generated, but 
+fortunately wave growth is not sensitive to the initial wave field.
+
+\subsubsection{Wave Growth Limitation}
+
+Wave growth (in deep water) is not only limited by the wind speed 
+$U_{10}$, as mentioned above, but also by the time that wind has been blowing 
+and the distance to the coast where the wind comes from. This distance is 
+called fetch, and wave height increases the longer the fetch is. Wind duration 
+and fetch can be combined to the equivalent fetch, assuming that from the 
+moment on that the wind started, a wave component with group velocity $c_g$ has 
+travelled a certain distance in wind direction. Wind transfers the same 
+energy to the wave component either over a time $t$ or (for an infinitely long 
+time period) over a distance
+\begin{equation}
+ \label{eqFetch}
+ F_{eq} = c_g t \cos \theta , 
+\end{equation}
+where $\theta$ is the wave propagation direction relative to the wind 
+direction. This distance is called the equivalent fetch. Sea states where real 
+fetch is shorter (longer) than the equivalent one are called fetch-limited 
+(duration-limited). At fully developed sea states, the wave phase speed (at 
+some peak frequency) has approached $U_{10}$ and wave growth decays.
 
 \subsection{Wave-wave Interaction}
 
+Energy can be transfered between wave components by resonance. This happens, if 
+two pairs of waves have the same frequency, wave number vector and direction. A 
+pair of waves is a superposition of two waves of different frequencies and wave 
+number vectors, which visually form a diamond pattern (\fig{diamond}).
+\begin{figure}[ht]
+ \includegraphics[width=15cm]{bilder/diamond.png}
+ \caption{Two pairs of waves, each creating a diamond pattern, fulfill the 
+resonance conditions fow quadruplet wave-wave interaction. Figure courtesy 
+\cite{holthuijsen2007}. \label{diamond}}
+\end{figure}
+
+If two of those diamond patterns fulfill the resonance conditions, energy can 
+be distributed among the four waves involved. This mechanism is called 
+quadruplet wave- wave interaction. It draws energy from the mid-range 
+freequencies and provides it to waves with rather high or low frequencies. 
+
+In shallow water (non-dispersive waves), triad wave-wave interaction is 
+possible, where a pair of waves fulfills the above resonance conditions with a 
+third wave.
+
 \subsection{Dissipation of Energy}
+
+Wave energy can be dissipated either by white-capping in deep 
+water, or by bottom friction and depth-induced breaking in the surf zone. 
+
+White-capping describes the breaking of waves in deep water. This is a 
+highly non-linear process which is not understood in detail. Presumably, wave 
+steepness and local wind affect the occurence of white-caps, which draw energy 
+from waves at frequencies by hindering the upward movement of the sea surface. 
+The average dissipative effect of white-capping is rather weak.
 
 \section{Sea State Description}
 The most important method 
@@ -102,14 +172,14 @@ respectively.
 
 The JONSWAP spectrum was found to be a good generalization of observed wave 
 energy spectra, not only for idealized fetch-limited conditions but also for 
-arbitrary wind conditions. Reason for that is that wave-wave interaction 
-distributes energy among wave frequencies in a way that stabilizes the shape of 
-the JONSWAP spectrum. 
+arbitrary wind conditions. Reason for that is that wave-wave interaction (see 
+above) distributes energy among wave frequencies in a way that stabilizes the 
+shape of the JONSWAP spectrum. 
 
 The energy spectra discussed above are one dimensional, only depending on wave 
 frequency. No information about the propagation direction of waves are 
 included. To completely describe a sea state, the energy spectrum $E(f,\theta)$ 
-has to be extended by informations about hoe energy is distributed among waves 
+has to be extended by informations about how energy is distributed among waves 
 traveling in propagation direction $\theta$.
 
 \section{Third Generation Wave Model SWAN}
@@ -178,7 +248,11 @@ with the phase velocity $c$ and $\rho_{air}$ and $\rho_{water}$ the densities of
 
 \subsection{Nonlinear wave -- wave interaction}
 
-Quadruplet wave -- wave interaction is calculated with the discrete--interaction approximation (DIA) by \citep[][]{hasselmann1985}. Only two constellations of wave quadruplets are considered to interact. The frequencies must fulfill
+The calculation of quadruplet wave-wave interaction requires large 
+computational resources because of the high number of possible quadruplet 
+constellations. It is calculated with the discrete-interaction approximation 
+(DIA) by \citep[][]{hasselmann1985}. Only two constellations of wave quadruplets 
+are considered to interact. The frequencies must fulfill
 \begin{align*}
  \sigma_1 &= \sigma_2 = \sigma \\
  \sigma_3 &= 1.25 \sigma = \sigma^+ \\
@@ -208,16 +282,46 @@ Wave energy is dissipated by white -- capping. The representation of this proces
 \begin{equation}
  S_{wc} (\sigma, \theta ) = - 2.36 \cdot 10^{-5} \frac{k}{\tilde{k}} \left( \frac{\tilde{s}}{\tilde{s}_{PM}} \right)^4 \frac{\tilde{\sigma}}{\tilde{k}} k E(\sigma, \theta),
 \end{equation}
-with $\tilde{s} = \tilde{k} \sqrt{m_0}$ being the overall wave steepness, $k$ the wave number, $\tilde{\sigma}$ the mean wave frequency and $\tilde{s}_{PM} = \sqrt{3.02 \times 10^{-3}}$ the overall wave steepness of the Pierson -- Moskowitz spectrum.
+with $\tilde{s} = \tilde{k} \sqrt{m_0}$ being the overall wave steepness, $k$ 
+the wave number, $\tilde{\sigma}$ the mean wave frequency and $\tilde{s}_{PM} = 
+\sqrt{3.02 \times 10^{-3}}$ the overall wave steepness of the Pierson -- 
+Moskowitz spectrum.
 
 
 \subsection{Wave model setup for the Baltic Sea}\label{balticswan}
 
-The SWAN wave model version 41.01 was set up for the Baltic Sea including a nesting in the area of the German coastal sea. For the whole Baltic Sea, a grid resolution of $0.5^\circ \times 0.1^\circ $ in Latitude and Longitude was chosen in a domain reaching from $53.5^\circ \text{N } 9^\circ \text{E}$ to $66^\circ \text{N } 31^\circ \text{E}$. This includes the Kattegat, the passage from the Baltic to the North Sea, where boundary conditions were prescribed in the east: A constant JONSWAP spectrum with a wave height of $1$ m, a period of $5$ s and peak wave direction of $90^\circ$ with a high directional spreading. The passage from the North to the Baltic sea is very shallow, so the boundary conditions have negligible influence on the model outcome. Wave frequency range was set to $0.1 to 1.8 \text{ Hz}$, which mirrors the actual wave frequencies in the Baltic Sea \citep[][]{balticsea}, with a resolution of $42$ frequency bins. Computations included a spin-up time of $10$ days, sufficient for wave modeling and were performed for the years 2013 and 2014. The model was forced by wind data from the German Weather Service (DWD), the computational time step was $1$ hour (note that the propagation scheme implemented in SWAN is implicit, so the time step is not restricted by numerical issues). 
+The SWAN wave model version 41.01 was set up for the Baltic Sea including a 
+nesting in the area of the German coastal sea. For the whole Baltic Sea, a grid 
+resolution of $0.5^\circ \times 0.1^\circ $ in Latitude and Longitude was chosen 
+in a domain reaching from $53.5^\circ \text{N } 9^\circ \text{E}$ to $66^\circ 
+\text{N } 31^\circ \text{E}$. This includes the Kattegat, the passage from the 
+Baltic to the North Sea, where boundary conditions were prescribed in the east: 
+A constant JONSWAP spectrum with a wave height of $1$ m, a period of $5$ s and 
+peak wave direction of $90^\circ$ with a high directional spreading. The passage 
+from the North to the Baltic sea is very shallow, so the boundary conditions 
+have negligible influence on the model outcome. Wave frequency range was set to 
+0.1 to 1.8 Hz, which mirrors the actual wave frequencies in the Baltic 
+Sea \citep[][]{balticsea}, with a resolution of $42$ frequency bins. 
+Computations included a spin-up time of $10$ days, sufficient for wave modeling 
+and were performed for the years 2013 and 2014. The model was forced by wind 
+data from the German Weather Service (DWD), the computational time step was $1$ 
+hour (note that the propagation scheme implemented in SWAN is implicit, so the 
+time step is not restricted by numerical issues). 
 
-The nesting area reached from $53.5^\circ \text{N } 10^\circ \text{E}$ to $55.5^\circ \text{N } 15^\circ \text{E}$, including the Western German coastal seas. Spatial resolution was $0.01^\circ \times 0.025^\circ $ in Latitude and Longitude and the computational time step was set to $15$ minutes. Boundary conditions came from the Baltic Sea model and all parameters were left unchanged.
+The nesting area reached from $53.5^\circ \text{N } 10^\circ \text{E}$ to 
+$55.5^\circ \text{N } 15^\circ \text{E}$, including the Western German coastal 
+seas. Spatial resolution was $0.01^\circ \times 0.025^\circ $ in Latitude and 
+Longitude and the computational time step was set to $15$ minutes. Boundary 
+conditions came from the Baltic Sea model and all parameters were left 
+unchanged.
 
-In the context of a Master Thesis \citep[][]{masterarbeitronja}, the model setup for 2013 was tested for numerical convergence and compared to measured data on several locations in the Baltic Sea. Wave parameters like significant wave height were in good agreement with obtained data, even in areas with complex topography.
+
+In the context of a Master Thesis \citep[][]{masterarbeitronja}, the model setup 
+for 2013 was tested for numerical convergence and compared to measured data on 
+several locations in the Baltic Sea. Wave parameters like significant wave 
+height were in good agreement with obtained data, even in areas with complex 
+topography.
+
 
 \begin{figure}[h]
 % \includegraphics[width=7cm]{bilder/arkona.pdf}
