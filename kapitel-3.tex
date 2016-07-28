@@ -8,16 +8,45 @@ bottom stress mainly dominates over current induced turbulence
 \citep[][]{jonsson2004}. Consequently, waves play a major role in sediment 
 transport and distribution in the Baltic Sea.
 
-A brief description of wind wave properties and processes and a discussion the 
-wave model SWAN can be found in Appendix B.
-
 \section{Introduction}
 
-\section{Material and Methods}
+DEFINITION PERMEABILITY. Sediments that are considered as permeable allow pore 
+water flow and exchange by hydrodynamically imposed pressure differences. 
+Biogeochemical processes in the sediment are strongly affected by this process, 
+and potentially permeable sediments are present in estimately 70$\%$ of the 
+global shelf seas. CITE EMERY1968
 
-\subsection{Permeability Mapping}
+Permeability is related to grain size distribution and size and geometry of the 
+interstices in the sediment. 
 
-\subsection{Wave model setup for the Baltic Sea}\label{balticswan}
+
+
+\section{Permeability Map}
+
+\cite{forster2003} constructed a map reflecting the permeability in the western 
+Baltic Sea using direct measurements of vertical permeability and estimates 
+from grain size distribution and porosity. From 37 samples, hydraulic 
+conductivity was measured and converted to permeability. From the same samples, 
+grain size distribution was determined. An approximation for the permeability 
+is the relation of Krumbein and Monk \citep[][]{krumbein1942}
+\begin{equation}
+ \label{kKM}
+ k_{KM} = 7.5 \times 10^{-4} d_{50}^2 e^{-1.31 \sigma},
+\end{equation}
+where $d_{50}$ is the median diameter and $\sigma$ the standard deviation of 
+the grain size distribution. This relation only holds for sufficiently well 
+sorted sediments with $\sigma \leq 0.7$. This formula was found to overestimate 
+the permeability, thus Eq.\ref{kKM} was divided by a correction factor of 2.6.  
+With this new relation, permeability was estimated from two data sets of grain 
+size distribution and interpolated. The data are shown in Fig.\ref{perm}.
+\begin{figure}[ht]
+ \includegraphics[width=16cm]{bilder/perm_k.png}
+ \caption{Permeability data from \cite{forster2003}. Reprinted 
+with permission. Pink line indicates the k=$2.5\times10^{-12}$ 
+isoline.\label{perm}}
+\end{figure}
+
+\section{Wave model for the Baltic Sea}\label{balticswan}
 
 The SWAN wave model version 41.01 was set up for the Baltic Sea including a 
 nesting in the area of the German coastal sea. For the whole Baltic Sea, a grid 
@@ -62,7 +91,8 @@ setup for 2013 (still using the previous version SWAN 40.91AB) was
 extensively tested for numerical convergence and compared to measured data on 
 several locations in the Baltic Sea. Wave parameters like significant wave 
 height were in good agreement with obtained data, even in areas with complex 
-topography.
+topography. A brief description of wind wave properties and processes and a 
+discussion the wave model SWAN can be found in Appendix B.
 
 \subsection{Idealized Wind Situations}
 
@@ -74,14 +104,13 @@ northwesterly winds occur more frequently, but tend to last shorter.
 
 To model wave activity under the two scenarios described above, we forced the 
 Baltic Sea wave model with constant wind from the northwest (NW) and the 
-northeast (NE), respectively. Wind speed was set to 25 m~s$^{-1}$, which was 
-the maximal wind speed measured at the Arkona MARNET station during 2003-2007. 
+northeast (NE), respectively. Wind speed was set to 20 m~s$^{-1}$, which was 
+the maximal wind speed reached during a strong northwest wind in January 2005.
 We used the same resolution and configuration as described in 
-section \ref{balticswan} and chose the modeled time period sufficiently long to 
+section \ref{balticswan} and a the modeled time period sufficiently long to 
 reach stationarity (10 days).
 
 \section{Results}	
-
 
 \section{Discussion}
 
