@@ -1,25 +1,42 @@
-\chapter{The Effect of Wind Waves on Sediment Properties}
+\chapter{The Effect of Wind Waves on Sediment Permeability}
 \label{kap-waves}
 
-Wind generated waves are a main contributor to the energetics in shallow water 
-bodies. They generate surface mixed layers and influence the near bed dynamics 
-even at considerable water depths. In shallow areas, wave induced maximal 
-bottom stress mainly dominates over current induced turbulence 
-\citep[][]{jonsson2004}. Consequently, waves play a major role in sediment 
-transport and distribution in the Baltic Sea.
+ABSTRACT
 
 \section{Introduction}
 
-DEFINITION PERMEABILITY. Sediments that are considered as permeable allow pore 
-water flow and exchange by hydrodynamically imposed pressure differences. 
-Biogeochemical processes in the sediment are strongly affected by this process, 
-and potentially permeable sediments are present in estimately 70$\%$ of the 
-global shelf seas. CITE EMERY1968
+Permeability is a measure of the resistance to the flow of water 
+through the sediment. Cohesive sediments are considered to be non-permeable, 
+while sands allow pore water flow and exchange of pore water and bottom water 
+by hydrodynamically imposed pressure differences. 
+Biogeochemical processes in the sediment are strongly affected by this process 
+\citep[][]{huettel2003}, and potentially permeable sediments are present in 
+estimately 70$\%$ of the global shelf seas \citep[][]{boudreau2001, 
+forster2003}. Furthermore, \cite{forster2003} showed that a large fraction of 
+sediments in the western Baltic Sea is permeable.
 
 Permeability is related to grain size distribution and size and geometry of the 
-interstices in the sediment. 
+interstices in the sediment, thus empirical relations to calculate $k$ from 
+commonly measured sediment properties have been formulated 
+\citep[e.g.][]{krumbein1942, carman1937}. These estimates, however, do not 
+agree very well with measured permeability values \citep[][]{rusch2001}, 
+yielding that grain size distribution is not the only parameter determining 
+permeability. \cite{boudreau2001} pointed out, that even the occassional 
+resuspension of sediments maintains permeability of the sediment by 
+removing finer particles (``winnowing''). Experimentally, \cite{forster2003} 
+found that winnowing nearly doubles the permeability, whilst the presence of a 
+fluffy layer decreases it. This yields that permeability depends to a great 
+extent on the hydrodynamic conditions near the sea bed. 
 
+In the shallow western Baltic Sea, the impact of wave-induced stress on the 
+sediment generally dominates over the stress induced by currents 
+\citep[][]{Grant1986}. \cite{jonsson2004} used a wave model to calculate the 
+wave-induced bottom friction velocity and compared it with the bottom type 
+distribution in the Baltic Sea. The good agreement found in that study suggests 
+that the wave-induced bottom friction velocity distribution might also be 
+correlated with the permeability distribution.
 
+OUTLINE CHAPTERS
 
 \section{Permeability Map}
 
@@ -27,7 +44,7 @@ interstices in the sediment.
 Baltic Sea using direct measurements of vertical permeability and estimates 
 from grain size distribution and porosity. From 37 samples, hydraulic 
 conductivity was measured and converted to permeability. From the same samples, 
-grain size distribution was determined. An approximation for the permeability 
+grain size distribution was determined. One approximation for the permeability 
 is the relation of Krumbein and Monk \citep[][]{krumbein1942}
 \begin{equation}
  \label{kKM}
@@ -35,15 +52,14 @@ is the relation of Krumbein and Monk \citep[][]{krumbein1942}
 \end{equation}
 where $d_{50}$ is the median diameter and $\sigma$ the standard deviation of 
 the grain size distribution. This relation only holds for sufficiently well 
-sorted sediments with $\sigma \leq 0.7$. This formula was found to overestimate 
-the permeability, thus Eq.\ref{kKM} was divided by a correction factor of 2.6.  
+sorted sediments with $\sigma \leq 0.7$. The formula was found to overestimate 
+the permeability, thus \eqref{kKM} was divided by a correction factor of 2.6.  
 With this new relation, permeability was estimated from two data sets of grain 
-size distribution and interpolated. The data are shown in Fig.\ref{perm}.
+size distribution and interpolated. The data are shown in \fig{perm}.
 \begin{figure}[ht]
  \includegraphics[width=16cm]{bilder/perm_k.png}
- \caption{Permeability data from \cite{forster2003}. Reprinted 
-with permission. Pink line indicates the k=$2.5\times10^{-12}$ 
-isoline.\label{perm}}
+ \caption{Permeability data from \cite{forster2003}. Pink line indicates the 
+k=$1\times10^{-12}$ isoline. Reprinted with permission. \label{perm}}
 \end{figure}
 
 \section{Wave model for the Baltic Sea}\label{balticswan}
@@ -78,7 +94,7 @@ compared to data obtained with a wave rider buoy. The significant wave height
 is defined as the average wave height of the highest one-third of the waves. 
 This value matches the visually observed wave height best and can be calculated 
 from the zeroth-order moment if the variance density spectrum $m_0$ via 
-$H_{sign} = 4 \sqrt{m_0}$.
+$H_s = 4 \sqrt{m_0}$.
 \begin{figure}[ht]
  \includegraphics[width=9cm]{bilder/januar.pdf}
  \caption{Significant wave height calculated with the SWAN wave model (HR 
@@ -96,7 +112,8 @@ discussion the wave model SWAN can be found in Appendix B.
 
 \subsection{Idealized Wind Situations}
 
-Storm surges in the Baltic sea are caused by two large-scale wheater 
+Wave-induced resuspension of sediment is related to extreme wind events. Storm 
+surges in the Baltic sea are caused by two large-scale wheater 
 situations. Strong northwest or northeast winds generate the highest 
 waves in the western Baltic \citep[][]{balticsea}. Northeast winds maximize the 
 fetch and therefore the wave activity in German coastal waters. Strong 
@@ -107,10 +124,51 @@ Baltic Sea wave model with constant wind from the northwest (NW) and the
 northeast (NE), respectively. Wind speed was set to 20 m~s$^{-1}$, which was 
 the maximal wind speed reached during a strong northwest wind in January 2005.
 We used the same resolution and configuration as described in 
-section \ref{balticswan} and a the modeled time period sufficiently long to 
+section \ref{balticswan} and chose the modeled time period sufficiently long to 
 reach stationarity (10 days).
 
+\subsection{Wave-Induced Bottom Friction Velocity}
+
+Bottom friction velocity $u_\ast$ is a common quantity to express the influence 
+of waves or currents on the sea bed. It is related to the bottom shear stress 
+$\tau_b$ via $u_\ast = \sqrt{\tau_b \slash \rho}$, which on the other hand can 
+be estimated as $\tau_b = 0.5 \rho f_w U^2$. Here, $\rho$ is the fluid 
+density, $f_w$ the wave friction factor and $U$ the wave-induced
+maximal near bottom orbital velocity \citep[][]{schwartz2006}. Hence the 
+relation
+\begin{equation}
+ \label{ustar}
+ u_\ast = U \sqrt{0.5 f_w}
+\end{equation}
+follows. $U$ depends on significant wave height $H_s$, wave length 
+$L$, water depth $D$ and wave period and is calculated in the numerical 
+model using linear wave theory \citep[][]{holthuijsen2007, schwartz2006}. The 
+wave friction factor can either be estimated using median grain size 
+\citep[][]{swart1974, nielsen1992} or from the Reynolds number $Re$ 
+\citep[][]{nielsen1992, jonsson2004}. As the median grain size is already used 
+in the estimation of permeability, we decided to calculate $f_w$ in as a 
+function of $Re$ according to
+\begin{equation}
+ \label{fw}
+ f_w = \left\{ \begin{array}{lll}
+             \frac{2}{\sqrt{Re}}, & \qquad \qquad \; \,  Re \leq 3 \times 10^5 
+\\
+              3.34 \times 10^{-3} + 1.05 \times 10^{-9} Re, \, &3 \times 10^5 < 
+							  Re < 1 \times 10^6 \\
+	      0.024 Re^{-0.123}, \, &1 \times 10^6 \leq Re. \\
+              \end{array} 
+              \right. 
+\end{equation}
+The Reynolds number is a quantity to distinguish between laminar and turbulent 
+flows, and in this case defined as
+\begin{equation}
+ \label{reynolds}
+ Re = \frac{U H_s}{2 \nu \sinh (2 \pi D \slash L) },
+\end{equation}
+with $\nu = 1.3 \times 10^{-6}$ m$^2$~s$^{-1}$ being the kinematic viscosity.
 \section{Results}	
+
+
 
 \section{Discussion}
 
