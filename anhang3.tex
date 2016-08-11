@@ -6,7 +6,7 @@ GOTM is a one-dimensional water-column model that solves the Reynolds-averaged N
 
 \section{Introduction}
 
-Turbulence is a main contributor to mixing processes in the ocean and affects mean flow as well as particle movement and the spreading of tracers. Turbulent processes can be calculated with Direct Numerical Simulations (DNS), which solve the full Navier-Stokes equations, but the necessary resources and the computational time exceeds by far what is applicable in the simulation of realistic scenarios. In Large Eddy Simulations (LES) only large scale turbulence is calculated directly whilst the small scale is parameterized. With the progress in data processing and computers, LES is more and more convenient to use, but up to now still too expensive in terms of computational time for most applications. Therefore, turbulent fluxes have to be derived from quantities that can be calculated more efficiently. An important class of models for this problem are one-point statistical closure models, which solve transport equations for the turbulent fluxes. As this introduces new variables, physically reasonable assumptions must be made to ensure the existence of a unique solution to the set of equations \citep[][]{UmlaufBurchard2005a}. These assumptions are the turbulence closure. The order of the model refers to the order to which turbulent fluxes are calculated from transport equations. A second order model solves transport equations for the turbulent fluxes and assumes physically reasonable approximations for the newly introduced third-moment fluxes. In a third order model, transport equations for these third-moment fluxes are derived and closures are assumed on the next level (ZITATSANDER 1998???). State of the art in ocean circulation models today are second order turbulence closures.
+Turbulence is a main contributor to mixing processes in the ocean and affects mean flow as well as particle movement and the spreading of tracers. Turbulent processes can be calculated with Direct Numerical Simulations (DNS), which solve the full Navier-Stokes equations, but the necessary resources and the computational time exceeds by far what is applicable in the simulation of realistic scenarios. In Large Eddy Simulations (LES) only large scale turbulence is calculated directly whilst the small scale is parameterized. With the progress in data processing and computers, LES is more and more convenient to use, but up to now still too expensive in terms of computational time for most applications. Therefore, turbulent fluxes have to be derived from quantities that can be calculated more efficiently. An important class of models for this problem are one-point statistical closure models, which solve transport equations for the turbulent fluxes. As this introduces new variables, physically reasonable assumptions must be made to ensure the existence of a unique solution to the set of equations \citep[][]{UmlaufBurchard2005a}. These assumptions are the turbulence closure. The order of the model refers to the order to which turbulent fluxes are calculated from transport equations. A second order model solves transport equations for the turbulent fluxes and assumes physically reasonable approximations for the newly introduced third-moment fluxes. In a third order model, transport equations for these third-moment fluxes are derived and closures are assumed on the next level \citep[e.g. in][]{sander1998}. State of the art in ocean circulation models today are second order turbulence closures.
 
 In all second order models that consider stratification and rotation effects, transport equations for the turbulent fluxes of momentum $\langle u_i^\prime u_j^\prime \rangle$ ($u_i$ being the velocity components) and buoyancy $\langle u_i^\prime b^\prime \rangle$ and a transport equation of the buoyancy variance $k_b = \langle b^{\prime \, 2} \rangle \slash 2 $ are derived. As the obtained equations are physically motivated, all terms appearing have a clear interpretation and can be compared to data (e.g. microstructure turbulence, high resolution acoustic velocity measurements) or the results of other models. 
 
@@ -25,10 +25,34 @@ For a operational turbulence parametrization, the model assumptions described ab
 \end{align}
 with $u,\,v,\,w$ being the three velocity components and $z$ the vertical coordinate. $\nu_t$ and $\nu_t^\prime$ are called the turbulent or eddy viscosity and diffusivity, respectively. They are polynomial functions, which depend on a large amount of derived parameters (for their part again dependent on different empirical parameters differing from model to model) which put shear and buoyancy effects in relation. The only unknowns left for the calculation of turbulent viscosity and diffusivity are the turbulent kinetic energy $k$ and the dissipation rate $\epsilon$. 
 
-\section{Closure for $k$}
+\section{Closure for $k$ }
 
 The turbulent kinetic energy is defined as
 \begin{equation}
  \label{TKE}
- k = \frac{\langle u_i^\prime u_i^\prime \rangle}{2}.
+ k = \frac{\langle u_i^\prime u_i^\prime \rangle}{2}
 \end{equation}
+and a transport equation for $k$ can be derived from the transport equation for the turbulent fluxes of momentum. Most coastal ocean models either solve a simplified form of this transport equation or assume full equilibrium between shear and buoyancy production and dissipation of turbulent fluxes. Under this assumption, an explicit formula for $k$ can be derived that includes shear and buoyancy related numbers only from the last time step. 
+
+\section{Closure for $\epsilon$ or $l$ }
+
+Whilst the closure for $k$ is rather straight forward, the closure for the dissipation rate $\epsilon$ is highly under discussion. The problem of determining $\epsilon$ is equivalent to finding a dissipation length scale $l$, via the cascading relation \citep[][]{UmlaufBurchard2005a}
+\begin{equation}
+ \label{cascad}
+ \epsilon \sim k^{3 \slash 2} l^{-1}.
+\end{equation}
+%Here, $c_\mu^0$ is a parameter derived under the assumption of unstratified flows where shear production and dissipation are in equilibrium. This is consistent with the log-layer assumption, where this equilibrium is present by definition. Relation \eqref{cascad}, however, is 
+%which is assumed to be valid in stratified (and rotating) flows.
+
+A simple and very famous model is the \cite{blackadar1962} formula:
+\begin{equation}
+ \label{blackadar}
+ \frac{1}{l} = \left( \frac{1}{(\kappa (d_s + z_0^s) )} + \frac{1}{\kappa (d_b + z_0^b)} + \frac{1}{l_a} \right).
+\end{equation}
+$d_s,\, d_b,\, z_0^s,\, z_0^b$ are the distances from surface and bottom and the corresponding roughness lengths, respectively. $l_a$ depends on vertically integrated values of $k^{1 \slash 2}$ or is set to a fraction of the water depth. This model has some disadvantages: Firstly, it depends on dimensional constants and coordinates and hence the reference system, what should be avoided in turbulence modeling. Secondly, it fails for example in cases of stably stratified flows and is inapplicable if the considered problem includes no vertical boundaries. The problems in stably stratified flows can be reduced by clipping the length scale at a certain maximum. Unfortunately, model results in some cases are very sensitive to a constant included in this clipping.
+
+Another way to obtain a closure is to derive a transport equation for $l$. Several different approaches that reveal good performance in many applications been established.
+
+
+
+
