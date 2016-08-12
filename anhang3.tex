@@ -51,8 +51,10 @@ A simple and very famous model is the \cite{blackadar1962} formula:
 \end{equation}
 $d_s,\, d_b,\, z_0^s,\, z_0^b$ are the distances from surface and bottom and the corresponding roughness lengths, respectively. $l_a$ depends on vertically integrated values of $k^{1 \slash 2}$ or is set to a fraction of the water depth. This model has some disadvantages: Firstly, it depends on dimensional constants and coordinates and hence the reference system, what should be avoided in turbulence modeling. Secondly, it fails for example in cases of stably stratified flows and is inapplicable if the considered problem includes no vertical boundaries. The problems in stably stratified flows can be reduced by clipping the length scale at a certain maximum. Unfortunately, model results in some cases are very sensitive to a constant included in this clipping.
 
-Another way to obtain a closure is to derive a transport equation for $l$. Several different approaches that reveal good performance in many applications been established.
-
-
-
+Another way to obtain a closure is to derive another transport equation for $l$ (or $\epsilon$). Several different approaches have been established that reveal good performance in many applications: \cite{mellor1982} suggested a transport equation for the product of $k$ and $l$, \cite{burchard1995} one for the dissipation rate. \cite{wilcox1998} formulated a transport equation for $\omega = \epsilon \slash k$, which turned out to be a great amendment especially in the modeling of turbulence under breaking waves. To generalize all these different models, \cite{UmlaufBurchard2003a} suggested a generic transport equation for arbitrary fractions of $k$ and $l$:
+\begin{equation}
+ \label{genericeq}
+ \partial_t (k^m l^n) - \partial_z \left( \frac{\nu_t}{\sigma_{mn}} \partial_z(k^m l^n) \right) = k^{m-1} l^n (c_{mn1}P + c_{mn3} G - c_{mn2} \epsilon ).
+\end{equation}
+The choice of $m$ and $n$ determines the model, e.g. with $m=3 \slash 2$ and $n=-1$, \eqref{genericeq} becomes the $\epsilon$-equation in \cite{burchard1995} (note that $\epsilon \sim k^{3 \slash 2} l^{-1}$, see \eqref{cascad}). $\sigma_{mn}$ is constant, but depends on the chosen model. The formulation of this generic transport equation allows more direct comparison of different established turbulence models and can furthermore be used to derive new turbulence models, provided that the determination of the necessary parameters is constrained, such that the model behavior is controlled. 
 
