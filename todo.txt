@@ -1,1 +1,9 @@
+Kapitel Baltic Sea:
+
+- wave climate, inertial oscillations in 4.1
+- 4.2 streichen
+- mehr zu AB, OB, größere Karte mit genauerer Beschreibung Sediment (tau_c, w_s) aus Kap. 5, eingetragenen Namen der Orte und Legende viel größer! Dinge aus Datenkapitel hierher?
+
+Kapitel Daten:
+
 - 600 kHz ADCP-Bild: A/B und was ist Nord-Süd, Ost-West.
