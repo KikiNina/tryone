@@ -8,22 +8,13 @@ the Reynolds-averaged Navier-Stokes equations using the Boussinesq approximation
 acceleration) and assumes pressure to be hydrostatic. The most important aspect 
 of GOTM is, however, the choice of turbulence closure models. 
 
-The development of 
-GOTM started in 1992 in Hamburg during 
-the PhD time of Hans Burchard. Innovations and new findings were discussed and 
-the code was extended during the following years, and two new developers joined 
-the GOTM team in 1998. With the objective to provide any interested user a 
-turbulence model that allows to choose between several established turbulence 
-parameterizations and which can be extended with biogeochemical models or 
-included in three dimensional models, the developers published a first stable 
-version of GOTM in 1999. Since then, GOTM is broadly used and still under 
-continuous development \citep[][]{gotm1999}. In this appendix, a brief 
+In this appendix, a brief 
 introduction into the basic principles and assumptions of turbulence modeling 
 in 
 oceanographic context is given. I will not explain the mathematical derivation 
-of equations here, as this can be found in a broad variety of books and is far 
-too much to be presented in this context. This chapter rather aims on giving 
-the reader a general idea of the principles and the nomenclature of todays 
+of equations here, as this can be found in a broad variety of books and is 
+beyond the scope of this thesis. This chapter rather aims at providing 
+the reader with a general idea of the principles and the nomenclature of todays 
 turbulence models and will therefore only contain mathematical equations when 
 they support the readability.
 
@@ -37,24 +28,26 @@ mean flow as well as particle movement and the spreading of tracers. Therefore,
 turbulence needs to be included in numerical ocean circulation models to some 
 extent. Turbulent processes can be calculated with Direct Numerical Simulations 
 (DNS), which solve the full Navier-Stokes equations, but the necessary resources 
-and the computational time exceeds by far what is applicable in the simulation 
+and the computational costs exceed by far what is applicable in the simulation 
 of 
 realistic scenarios. For faster calculations, in Large Eddy Simulations (LES) 
-only large scale turbulence is calculated directly whilst the small scale is 
-parameterized. With the progress in data processing and computers, LES is more 
-and more convenient to use, but up to now still too expensive in terms of 
+only large-scale turbulence is resolved directly whilst the smaller scales are 
+parameterized. With the progress in data processing and computers, LES has 
+become more 
+and more convenient to use, but is up to now still too expensive in terms of 
 computational time for most 
 applications. Therefore, turbulent fluxes have to be derived from quantities 
 that can be calculated more efficiently. An important class of models for this 
-problem are (second order) one-point statistical closure models, which solve 
+problem are (second moments) one-point statistical closure models, which solve 
 transport equations for the turbulent fluxes. As these transport equations  
-introduce additional unknowns, physically reasonable assumptions must be made 
-to ensure the existence of a unique solution 
-to the set of equations \citep[][]{UmlaufBurchard2005a}. These assumptions are 
-the turbulence closure. The order of the model refers to the order to which 
-turbulent fluxes are calculated from transport equations. A second order model 
-solves transport equations for the turbulent fluxes and assumes physically 
-reasonable approximations for the newly introduced third-moment fluxes. In a 
+introduce additional unknowns, physically reasonable closure assumptions must 
+be made 
+to ensure the existence of an accurate solution 
+to the set of equations \citep[][]{UmlaufBurchard2005a}. A second order model 
+solves transport equations for the second moments of the turbulent fluctuations 
+and assumes physically 
+reasonable approximations for the higher-order statistical moments appearing in 
+these equations. In a 
 third order model, transport equations for these third-moment fluxes are derived 
 and closures are assumed on the next level \citep[e.g. in][]{sander1998}. State 
 of the art in ocean circulation models today are second order turbulence 
@@ -68,38 +61,41 @@ $k_b = \langle b^{\prime \, 2} \rangle \slash 2 $ are derived. Here, $u_i$
 are the velocity components, $b$ denotes the buoyancy and $\langle . \rangle$ 
 the Reynolds average. The prime $.^\prime$ indicates the deviation from the 
 Reynolds average, similar to the notation in section 2 and 3. As the obtained 
-equations are physically motivated, all terms appearing have a clear 
+equations are directly derived from the Navier-Stokes equations, all terms 
+appearing have a clear 
 interpretation and can be compared to data (e.g. microstructure turbulence, high 
 resolution acoustic velocity measurements) or the results of other models.  
 
 \section{Pressure Redistribution Models}\label{pressresm}
 
-One possibility for a turbulence closure in second order models are the so 
-called pressure redistribution models. One new term in the flux of momentum 
+One new term in the flux of momentum 
 $\langle u_i^\prime u_j^\prime \rangle$ transport equation is the 
 pressure--strain correlation $\Phi_{ij}$, which determines how energy is 
 distributed among the components $\langle u_i u_j \rangle$. The closure for 
 this quantity is the most crucial assumption that has to be made in turbulence 
-models. A general and commonly used equation exists for the explicit 
-calculation of $\Phi_{ij}$ from approximations 
-for the tendency of turbulence to be isotropic, straining effects and buoyancy 
-input in varying ratios. Most of the pressure-redistribution model only 
+models. General and commonly used models for the explicit 
+calculation of $\Phi_{ij}$ are pressure redistribution models. These models are 
+based on the tendency of unforced turbulence to be isotropic, whereas straining 
+effects and buoyancy tend to induce anisotropy. Most of the 
+pressure-redistribution models only 
 differ in the choice of parameters in this equation. For the corresponding term 
 that appears in the 
 transport equation for buoyancy fluxes, $\langle u_i^\prime b^\prime \rangle$ , 
-the pressure--buoyancy--gradient correlation $\Phi_i^b$, another 
-general explicit model exists that relates the tendency for isotropic 
+the pressure--buoyancy--gradient correlation $\Phi_i^b$, other explicit models 
+exists that relates the tendency for isotropic 
 turbulence and the effects of shear and stratification with the use of several 
-empirical coefficients. Although these pressure redistribution models are 
+empirical coefficients. TALK TO LARS ABOUT: Although these pressure 
+redistribution models are 
 relatively simple, they still require too much computational time for the 
 application in ocean circulation models. 
 
 \section{Explicit Algebraic Models}
 
 For a operational turbulence parametrization, the model assumptions described 
-above have to be further simplified to obtain fully explicit expressions for 
-the 
-turbulent fluxes that can easily be solved. These are the explicit algebraic 
+above have to be further simplified to obtain fully explicit expressions 
+for the turbulent fluxes that can easily be solved. An explicit equation in 
+this context means that only quantities calculated in the last computational 
+time step are used for calculations. These are the explicit algebraic 
 models. Under the assumption that the production of turbulence by buoyancy and 
 shear is in equilibrium with dissipation of turbulence by viscous effects, the 
 transport equations for the turbulent fluxes greatly simplify and can be solved 
@@ -121,7 +117,9 @@ energy $k$ and the turbulent length scale $l$ according to
  \nu_t = c_\mu \sqrt{k} l, \quad \nu_t^\prime = c_\mu^\prime \sqrt{k} l.
 \end{equation}
 Here, $c_\mu$ and $c_\mu^\prime$ are non-dimensional stability 
-functions \citep[][]{gotm1999}.
+functions \citep[][]{gotm1999}. These stability function contains the essence 
+of the closure model (and therefore the model parameters introduced with these 
+models).
 
 Consequently, calculation of turbulent fluxes only depends on the gradient of 
 the transported quantity itself and $\nu_t$ and $\nu_t^\prime$. The the 
@@ -138,7 +136,7 @@ The turbulent kinetic energy is defined as
  k = \frac{\langle u_i^\prime u_i^\prime \rangle}{2}
 \end{equation}
 and the following transport equation for $k$ can be derived from the 
-Navier-Stokes equations \citep[][]{Rodi1993}:
+Navier-Stokes equations \citep[][]{Rodi1993} WHICH MODELLING ASSUMPTIONS?:
 \begin{equation}
  \label{transpk}
  \partial_t k - \partial_z (\nu_k \partial_z k) = P + B -\varepsilon.
@@ -201,14 +199,16 @@ integrated values of $k^{1 \slash 2}$ or is set to a fraction of the water
 depth. This model has some disadvantages: Firstly, it depends on dimensional 
 constants and coordinates and hence the reference system, what should be 
 avoided in turbulence modeling. Secondly, it fails for example in cases of 
-stably stratified flows and is inapplicable if the considered problem includes 
-no vertical boundaries. The problems in stably stratified flows can be reduced 
+stably stratified flows and is inapplicable if the problem considered includes 
+no boundaries at surface or bottom. The problems in stably stratified flows can 
+be reduced 
 by clipping the length scale at a certain maximum. Unfortunately, model results 
-in some cases are very sensitive to a constant included in this clipping. 
+in some cases are very sensitive to a constant included in this clipping 
+\citep[][]{UmlaufBurchard2005a}. 
 
 Another way to obtain a closure is to derive another transport equation for $l$ 
 (or $\varepsilon$). Several different approaches have been established that 
-reveal good performance in many applications: \cite{mellor1982} suggested a 
+showed good performance in many applications: \cite{mellor1982} suggested a 
 transport equation for the product of $k$ and $l$, \cite{burchard1995} one for 
 the dissipation rate. \cite{wilcox1998} formulated a transport equation for 
 $\omega = \varepsilon \slash k$, which turned out to be a great amendment 
@@ -241,7 +241,9 @@ stably stratified flows, derived from the findings of \citep{Galperin1988}:
 
 Under stable stratification, the model parameter $c_{mn3}$ mentioned in the 
 last section was found to depend on the steady-state Richardson number 
-$Ri_{st}$, which indicates equilibrium $P + B = \varepsilon$ in homogeneous 
+$Ri_{st}$. The turbulent Richardson number is defined as $Ri = N^2 \slash 
+M^2$, and the steady-state Richardson number indicates equilibrium $P + 
+B = \varepsilon$ in homogeneous 
 turbulence and was experimentally determined to be around 0.25 
 \citep[][]{UmlaufBurchard2005a}. $c_{mn3}$ is then calculated via
 \begin{equation}
@@ -249,15 +251,22 @@ turbulence and was experimentally determined to be around 0.25
  c_{mn3} = c_{mn2} - (c_{mn1} - c_{mn2}) \frac{c_\mu(Ri_{st})}{c_\mu^ \prime 
 (Ri_{st})} \frac{1}{Ri_{st}}.
 \end{equation}
-For unstable stratification, $c_{mn3} = 1.0$ is used \citep[][]{Rodi1987}.
+For unstable stratification, $c_{mn3} = 1.0$ is used \citep[][]{Rodi1987}. 
+\cite{UmlaufBurchard2005a} showed that $Ri_{st}$, and thus $c_{mn3}$ determines 
+the entrainment velocity in stratified boundary layers, which is essential for 
+the process investigated in chapters \ref{kap-slope} and \ref{kap-jgr}.
 
 \section{Stability functions}
 
-The choice of the stability functions $c_\mu$ and $c_\mu^\prime$ includes 
-constant formulations or simple dependences on the Richardson number. A more 
-sophisticated approach are rational stability functions depending on 
-the non-dimensional shear and buoyancy number, $\alpha_M = \tau^2 M^2$ and 
-$\alpha_N = \tau^2 N^2$, where $\tau = k \slash \varepsilon $ is the turbulent 
+The stability functions follow directly from the (closed) second-moment 
+equations. Depending on the assumptions in the turbulence closure, the 
+stability functions $c_\mu$ and $c_\mu^\prime$ include 
+constant formulations or simple dependences on the Richardson number for 
+highly simplified turbulence closures. More
+general assumptions in the turbulence closure lead to rational stability 
+functions depending on the non-dimensional shear and buoyancy number, $\alpha_M 
+= \tau^2 M^2$ and $\alpha_N = \tau^2 N^2$, where $\tau = k \slash \varepsilon $ 
+is the turbulent 
 time scale. Coefficients are calculated from the prescribed set of parameters 
 that determine the pressure--redistribution model.
 
