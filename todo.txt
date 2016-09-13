@@ -1,10 +1,16 @@
 Kapitel Baltic Sea:
 
 - mehr zu AB, OB, größere Karte mit genauerer Beschreibung Sediment (tau_c, w_s) aus Kap. 5, eingetragenen Namen der Orte und Legende viel größer! Dinge aus Datenkapitel hierher?
+- wave climate of the baltic sea and intertial motions (alles was wichtig ist für das datenkapitel). Ev. SWAN-teil?
+- 4.2 streichen
 
 Kapitel Daten:
 
+- in einleitung: explanation of the different factors responsible for resuspension (waves, mean current).
+- Clearer motivation.
 - T/S diagramm aus arkona becken für generelle schichtung des wasserkörpers
+- Explain the physical processes (near-inertial waves) that pervail in this basin. This could be related to Eefkes paper from the Bornholm basin
+- Estimate the bottom shear stress from measured near-bottom dissiatpion rates (talk to me). This could be related to estimates for the critical shear stress at this location. 
 - 600 kHz ADCP-Bild: A/B und was ist Nord-Süd, Ost-West.
 - bathymetrc map mit stationsnamen
 - table with coordinates
@@ -12,21 +18,19 @@ Kapitel Daten:
 - liste mit wie welcher lander bei welcher fahrt aussah
 - lars fragen: nur die sachen beschrieben, die wir auch wirklich als daten zeigen?
 - eps/turb aus AB ohne standard deviation, aber sagen, wie viele profile averaged wurden und welche fahrten das waren
+- wirklich slope-induced tidal straining hier diskutieren
+- 
 
-general:
+General:
 
 - kein we ausserhalb der paper
 - check Fig.5a not Fig.5,a
 - alle datums in 04 April (2016)
 
-I suggest the following: 
 
-- Discuss the Arkona data first, not last
-
-- Extend them with T,S,N2, etc. to discuss the general hydrographic situation during the time of the measurements (see my comments above).
-
-- Explain the physical processes (near-inertial waves) that pervail in this basin. This could be related to Eefkes paper from the Bornholm basin
-
-- Estimate the bottom shear stress from measured near-bottom dissiatpion rates (talk to me). This could be related to estimates for the critical shear stress at this location. 
-
-- Next, discuss the cross-slope transect to show how the BBL in the deep basin connects to the shallower parts.  
+Off Topic:
+- Winterunterkunft Mopped
+- Drucken und Binden Diss organisieren
+- Gästehaus Yerseke?
+- Mit Marko Wohnung besprechen.
+- Cruise Okt organisieren.

@@ -79,7 +79,8 @@ frequencies and provides it to waves with rather high or low frequencies.
 
 In shallow water (non-dispersive waves), triad wave-wave interaction is 
 possible, where a pair of waves fulfills the above resonance conditions with a 
-third wave. WHY IS IT ONLY POSSIBLE IN SHALLOW WATER?
+third wave. In deep water, the required resonance conditions cannot be 
+fulfilled because of the dispersion relationship.
 
 \subsection{Dissipation of Energy}
 
@@ -194,10 +195,11 @@ distributions
 in the wave frequency space but also for frequency shifts by wave-current 
 interaction. The action density $N=N(\sigma,\theta; x,y,t)$ is therefore 
 dependent on the relative radian frequency $\sigma$, which is the shifted 
-frequency in a system moving with the current: NACHSCHLAGEN!
+frequency in a system moving with the current: 
 \begin{equation}\label{ebe}
  \frac{\partial N}{\partial t} + \frac{\partial c_{g,x} N}{\partial x} + \frac{ 
-\partial c_{g,y} N}{\partial y} + \frac{\partial c_{\theta} N}{\partial t} + 
+\partial c_{g,y} N}{\partial y} + \frac{\partial c_{\theta} N}{\partial \theta} 
++ 
 \frac{\partial c_{\sigma} N}{\partial \sigma}= \frac{S_{in} + S_{nl} + 
 S_{wc}}{\sigma},
 \end{equation}
@@ -213,7 +215,8 @@ In the absence of currents, this action balance equation reduces to the energy
 balance equation.
 \begin{equation}\label{ebe}
  \frac{\partial E}{\partial t} + \frac{\partial c_{g,x} E}{\partial x} + \frac{ 
-\partial c_{g,y} E}{\partial y} + \frac{\partial c_{\theta} E}{\partial t} = 
+\partial c_{g,y} E}{\partial y} + \frac{\partial c_{\theta} E}{\partial \theta} 
+= 
 S_{in} + S_{nl} + S_{wc}.
 \end{equation}
 All equations in the following will be noted, consistent with the action balance 
