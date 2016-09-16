@@ -222,23 +222,37 @@ moorings and ship-based microstructure profiler transects are indicated in
 \fig{studyarea}, where colors mark the cruise during which the measurements 
 were performed.
 
-LOOK EEFKES PAPER FOR HOW SAMPLING INTERVALS ETC WERE DESCRIBED. ONLY 
-DESCRIBE WHAT WAS REALLY USED? TORALF FRAGEN!
-Three different types of moorings were deployed. A CTD-Chain consistent of 
-CTD-loggers (MicroCat from Seabird, USA and 5 TR-1060 type from RBR, Canada), 
-tied to a mooring line at intervals of 1 m, starting at 1 m above the seabed, 
-with additional optical backscatter sensors (NTU from Wetlabs, USA).
-
+Three different types of moorings were deployed near position TW during cruise 
+AL434. A CTD-Chain consistent of 8 CTD-loggers (MicroCat type SBE37-SM from 
+Seabird, USA), tied to a mooring line at intervals of 1 m, starting at 1 m above 
+the seabed, with additional optical backscatter sensors (NTU from Wetlabs, USA). 
+CTD data were sampled every 10~s, and the backscatter sensor obtained 8 
+consecutive samples in 1~s intervals every minute.
 Lander 1 was a bottom-mounted instrument frame, equipped with an upward looking 
-1200 kHz ADCP (Teledyne RDI, USA) and a 6 MHz single-point Doppler current 
-meter (Vector from Nortek AS, Norway).
+1200~kHz acoustic Doppler current profiler (ADCP, Teledyne RDI, USA) and a 6 
+MHz single-point acoustic Doppler velocimeter (ADV, Vector from Nortek AS, 
+Norway).
+Lander 2 was a similar bottom frame and, amongst other instruments, equipped 
+with an upward looking 600~kHz ADCP (Teledyne RDI, USA).
+%and an upward looking pulse-coherent ADCP (Aquadopp HR from Nortek AS, 
+%Norway). 
 
-Lander 2 was a similar bottom frame equipped with an upward looking 600 MHz 
-ADCP (Teledyne RDI, USA) and an upward looking pulse-coherent ADCP (Aquadopp HR 
-from Nortek AS, Norway). 
+The 1200~kHz ADCP sampled approximately the lowest 15~m of the water column in 
+intervals of 0.5~m, with the lowest bin located at 1.6~m above the ground. 
+And the instrument was operated in RDI ``mode 12'', 
+averaging measured velocity profiles over one set of 4 sub-pings at 300~ms 
+intervals every 2~s. 
+Velocity profiles over the whole water column were 
+obtained with the 600~kHz ADCP, again in 0.5~m intervals with the lowest bin 
+located 1.7~m above the ground. Velocity profiles were measured every 2 second, 
+averaged from 4 sub-pings in 220~ms intervals. To reduce measurement 
+uncertainties, velocity estimates from both ADCPs were averaged over 60~s in 
+time. 
+The ADV was operated in continuous mode at a sampling rate of 32~Hz. The 
+sampling volume was located 1.14~m above the ground.
 
-Deployment times of the moorings, exact deployment 
-position and instrumentation are listed in \tab{deployments}.
+Deployment times of the moorings, exact deployment position and instrumentation 
+are listed in \tab{deployments}.
 
  \begin{table}
 \caption{Deployment duration (UTC), position and instrumentation of the 
@@ -297,21 +311,35 @@ position & 54$^\circ$39.05$^\prime$N 13$^\circ$41.48$^\prime$E &
 54$^\circ$39.17$^\prime$N 13$^\circ$41.45$^\prime$E & 54$^\circ$39.12$^\prime$N 
 13$^\circ$41.45$^\prime$E \\
 \hline
-instruments & 8 CTD-Logger & ADV & 2~MHz Aquadopp \\
- & (MicroCat) & 1200~kHz ADCP & 600~kHz ADCP\\
- & 1-8~m AG & MicroCat & \\
- & 2 NTU & NTU & \\
- & 2.5, 4.5~m AG & & \\
+instruments & 8 MicroCat & ADV & 2~MHz Aquadopp \\
+ & 1-8~m AG & 1200~kHz ADCP & 600~kHz ADCP\\
+ & 2 NTU & MicroCat & \\
+ & 2.5, 4.5~m AG & NTU & \\
  \end{tabular}
 \end{center}
 \end{table}
 
-Ship-based microstructure measurements were performed with a MSS90-L 
-microstructure profiler (ISW, Germany). The instrument contained a set of 
-precision CTD sensors, a fast FP07 thermistor, a turbidity sensor, and two 
-airfoil shear-probes. During the transects (each of 1 to 5 hours duration) the 
-ship moved at 1-2~kn and profiles were obtained continuously. Number and time 
-of the transects for each cruise are summarized in \tab{mss}.
+Additionally, ship-based microstructure profile measurements were performed 
+near position AB with a MSS90-L microstructure profiler (ISW, Germany). The 
+instrument contained a set of 
+precision CTD sensors (SST, Germany), a fast FP07 thermistor, a turbidity 
+sensor, and two airfoil shear-probes (PNS06 from ISW, Germany). The 
+sensors were protected with a cage, so profiles were obtained nearly full-depth 
+until less than 0.1~m above the ground. During a transect (duration of 1 to 5 
+hours) the profiler was continuously operated from the stern of the ship, 
+free-falling through the water column with an approximate sinking speed of 
+0.5~m~s$^{-1}$, while the ship moved at 1-2~kn. Depending on water depth, one 
+profile was measured every 3 to 5 minutes. When multiple transects 
+were performed consecutively, the ship turned after the end of each transect 
+and was repositioned to the starting position. 
+Data processing routines were the same as described in \cite{vanderlee2011}, 
+their section 2.2. Data were despiked and averaged to 256~Hz resolution. 
+CTD data was binned to 0.1~m intervals in the vertical. Dissipation rates were 
+calculated under the assumption of local isotropy in the dissipative subrange 
+from the vertical shear spectra and averaged into vertical intervals of 0.5~m.
+
+Position and time of the transects for each cruise are summarized in 
+\tab{mss}.
 
  \begin{table}
 \caption{Duration (UTC), start and end coordinate and number of microstructure 
@@ -335,8 +363,12 @@ cruise & AL434 (2014) & EMB100 (2015) & MSM50 (2016)\\
 % transects & 8 (xx profiles) & & \\
 \hline
 %position & AB & AB & AB \\
-start position & & 54$^\circ$53.689$^\prime$N 13$^\circ$52.694$^\prime$E & \\
-end position & & 54$^\circ$52.695$^\prime$N 13$^\circ$49.694$^\prime$E& \\
+start position & 54$^\circ$50.100$^\prime$N 13$^\circ$28.428$^\prime$E & 
+54$^\circ$53.689$^\prime$N 13$^\circ$52.694$^\prime$E & 
+54$^\circ$52.554$^\prime$N 13$^\circ$52.698$^\prime$E\\
+end position & 54$^\circ$49.464$^\prime$N 13$^\circ$31.620$^\prime$E & 
+54$^\circ$52.695$^\prime$N 13$^\circ$49.694$^\prime$E & 
+54$^\circ$52.548$^\prime$N 13$^\circ$50.508$^\prime$E\\
 \hline
 duration & 05.04. 16:18 - & 14.04. 16:41 -  & 23.01. 
 13:21 -  \\
@@ -368,21 +400,22 @@ instruments deployed near TW for several days are displayed and analyzed.
 
 \subsection{Arkona Basin}
 
- During each of the three cruises AL434, EMB100 and MSM50, we collected 
-microstructure data in the Arkona Basin. \fig{abmss} shows the profiles of 
+ During each of the three cruises AL434, EMB100 and MSM50, microstructure 
+profiler measurements were performed in the Arkona basin. \fig{abmss} shows the 
+profiles of 
 dissipation rate and turbidity, averaged over all profiles obtained in the 
-basin for each cruise. A turbulent bottom boundary layer (BBL) is visible in 
+basin, for each cruise. A turbulent bottom boundary layer (BBL) is visible in 
 all three profiles, ranging from 1 to 5 m thickness. 
 Turbidity is enhanced in the BBL, but not above, suggesting that the suspended 
 sediment causing this turbidity originates from the sea floor. As these 
 measurements were performed over three years and in different 
 seasons, it is most likely that this turbid, very sharply defined BBL is 
-constantly present in the Arkona Basin.
+constantly present in the Arkona basin.
 
    \begin{figure}[ht]
 \includegraphics[width=15cm]{bilder/arkona_mss.pdf}
  \caption{Turbidity (gray lines) and dissipation rate (black lines) from all 
-microstructure transect performed in the Arkona Basin. Displayed data are the 
+microstructure transect performed in the Arkona basin. Displayed data are the 
 average over (a) a total of 119 microstructure profiles obtained during 5 
 transects on 05 April 2014 on cruise AL434 were averaged, (b) 184 profiles from 
 5 transects on 14-15 April 2015 on cruise EMB100 and (c) 431 profiles from 7 
