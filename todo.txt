@@ -19,18 +19,11 @@ Kapitel Daten:
 - lars fragen: nur die sachen beschrieben, die wir auch wirklich als daten zeigen?
 - eps/turb aus AB ohne standard deviation, aber sagen, wie viele profile averaged wurden und welche fahrten das waren
 - wirklich slope-induced tidal straining hier diskutieren
-- 
-
-General:
-
-- kein we ausserhalb der paper
-- check Fig.5a not Fig.5,a
-- alle datums in 04 April (2016)
 
 
 Off Topic:
-- Winterunterkunft Mopped
 - Drucken und Binden Diss organisieren
 - Gästehaus Yerseke?
 - Mit Marko Wohnung besprechen.
 - Cruise Okt organisieren.
+- Arbeitsamt
