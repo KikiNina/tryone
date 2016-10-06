@@ -121,24 +121,13 @@ parameters from these observations in section \ref{observations}, we
 discuss the model results in section \ref{modelresults}, and compare
 them to the field data. The implications of tidal straining for the
 generation of residual currents and the residual transport of
-suspended material are analyzed in section \ref{residuals} before we
+suspended material are analyzed in section \ref{residualsjgr} before we
 draw some conclusions in section \ref{conclusions}.
 
 
 \section{Model description}\label{modeldescription}
 
 \subsection{Model geometry}\label{modelgeometry}
-
-\begin{figure}
-  \noindent\includegraphics[width=30pc]{geometry.pdf}
-  \caption{Schematic view of the model geometry and density structure
-    (black lines) near a uniform slope with slope angle $\alpha$. Gray
-    lines indicate isopycnal equilibrium levels ($b_\infty =
-    const.$). Upslope and slope-normal coordinates are denoted by $x$
-    and $z$, respectively. Arrows symbolize the oscillating
-    near-bottom currents.}
-  \label{geometry}
-\end{figure}
 
 Following previous modeling studies of slope-induced straining
 \citep{UmlaufBurchard2011a,schulzumlauf2016}, we investigate in the
@@ -160,13 +149,24 @@ however, isopycnals will be distorted as a result of boundary mixing,
 and the local buoyancy $b$ will differ from the equilibrium buoyancy
 $b_\infty$ (black and gray lines Fig.\ \ref{geometry}).
 
+\begin{figure}
+  \noindent\includegraphics[width=30pc]{geometry.pdf}
+  \caption{Schematic view of the model geometry and density structure
+    (black lines) near a uniform slope with slope angle $\alpha$. Gray
+    lines indicate isopycnal equilibrium levels ($b_\infty =
+    const.$). Upslope and slope-normal coordinates are denoted by $x$
+    and $z$, respectively. Arrows symbolize the oscillating
+    near-bottom currents.}
+  \label{geometry}
+\end{figure}
+
 Introducing a rotated coordinate system with the cross-slope,
 along-slope, and slope-normal coordinates denoted by $x$, $y$, and $z$
 (see Fig.\ \ref{geometry}), it can be shown from simple geometrical
 arguments that under the above conditions also the cross-slope
 buoyancy gradient is constant:
 \begin{equation}
-  \label{dbdx}
+  \label{dbdxjgr}
   \frac{\partial b}{\partial x} = N^2_\infty \sin \alpha \, ,
 \end{equation}
 illustrating the generation of a quasi-horizontal ($\alpha \ll 1$)
@@ -177,7 +177,7 @@ stratification onto the slope
 \subsection{Model equations}\label{modelequations}
 
 Assuming that all cross-slope and along-slope gradients vanish, except
-the cross-slope buoyancy gradient defined in (\ref{dbdx}), the problem
+the cross-slope buoyancy gradient defined in (\ref{dbdxjgr}), the problem
 becomes geometrically one-dimensional in the slope-normal
 $z$-direction. The Boussinesq equations can then be written as
 \citep{Umlaufetal2015a}:
@@ -198,7 +198,7 @@ momentum (per unit mass) and buoyancy, respectively. $P_x(t)$ and
 $P_y(t)$ are integration constants that play the role of prescribed
 external pressure gradients. The cross-slope buoyancy gradient in the
 advection term in (\ref{beq}) has been expressed with the help of
-(\ref{dbdx}). Note that in contrast to previous studies of
+(\ref{dbdxjgr}). Note that in contrast to previous studies of
 slope-induced tidal straining that only considered the plane
 non-rotating case ($f=0$, $v=0$), equations (\ref{ueq}) -- (\ref {beq}) now
 include rotational effects that turned out to be essential to describe
@@ -235,7 +235,7 @@ w_s  \cos \alpha \right) \, ,
 where $F_z$ is the slope-normal turbulent SPM flux. At the bottom,
 this flux equals the erosion flux:
 \begin{equation}
-  \label{Fz}
+  \label{Fzjgr}
   F_z = \alpha_e \max \left\{ \frac{|\tau_b|}{\tau_c} -1,0 \right\} \quad 
 \text{at $z=0$} \, ,
 \end{equation}
@@ -305,14 +305,14 @@ the tendency of isopycnals to relax back to their equilibrium
 positions ($b=b_\infty$), which implies the possibility of reversible
 BBL oscillations at the frequency
 \begin{equation}
-  \label{omegac}
+  \label{omegacjgr}
   \omega_c^2 = f^2 \cos^2 \alpha + N_\infty^2 \sin^2 \alpha \, ,
 \end{equation}
 indicating that BBL resonance occurs for $\omega=\omega_c$
 \citep{UmlaufBurchard2011a}. Vice-versa, if $N_\infty$, $f$, and
 $\omega$ are considered to be given, BBL resonance will be observed if
 the slope $\alpha$ approaches the critical slope $\alpha_c$ found from
-inverting (\ref{omegac}). Model properties exhibit qualitative changes
+inverting (\ref{omegacjgr}). Model properties exhibit qualitative changes
 during the transition from subcritical to supercritical slopes, and
 some of the model assumptions break down near critical slopes
 \citep{UmlaufBurchard2011a,schulzumlauf2016}.
@@ -328,7 +328,7 @@ in our model analysis.
 
 \begin{table}
 \caption{Standard parameters used for the simulations in sections
-  \ref{modelresults} and \ref{residuals}}\label{input}
+  \ref{modelresults} and \ref{residualsjgr}}\label{input}
 \begin{center}
 \begin{tabular}{ccccccc}
 \hline
@@ -359,17 +359,6 @@ $T = 2 \pi / \omega$.
 
 \subsection{Study site}
 
-\begin{figure}
-  \noindent\includegraphics[width=40pc]{studyside.pdf}
-  \caption{Maps of (a) East China Sea, and (b) study area with
-    deployment location ``S''. Local cross-slope and along-slope
-    directions are denoted by $x$ and $y$ (rotated by 20 degrees with
-    respect to the zonal and meridional directions,
-    respectively). Bathymetry is in meters, based on bathymetric data
-    described in \cite{Choietal2002a}.}
-  \label{studysite}
-\end{figure}
-
 In July 2011, hydrographic and turbulence microstructure measurements
 were performed near position S in the East China Sea
 (Fig.\ \ref{studysite}). The study site was located at $31^\circ
@@ -390,6 +379,17 @@ observations of current velocity data at  $31^\circ 45'\,\text{N}, \, 127^\circ
 be noted that the inertial period is close to the periods of the diurnal tides,
 precluding a straightforward spectral distinction between diurnal
 tidal and near-inertial signals in a short time series.
+
+\begin{figure}
+  \noindent\includegraphics[width=35pc]{studyside.pdf}
+  \caption{Maps of (a) East China Sea, and (b) study area with
+    deployment location ``S''. Local cross-slope and along-slope
+    directions are denoted by $x$ and $y$ (rotated by 20 degrees with
+    respect to the zonal and meridional directions,
+    respectively). Bathymetry is in meters, based on bathymetric data
+    described in \cite{Choietal2002a}.}
+  \label{studysite}
+\end{figure}
 
 Fig.\ \ref{studysite} illustrates that position S is located
 approximately 400~km away from the Changjiang river mouth, which forms
@@ -535,7 +535,7 @@ linear stratification, slightly larger than $N^2=10^{-3}$~s$^{-2}$.
 Inside the BBL, the average stratification is 1-2 orders of magnitude
 smaller compared to this interior region (Fig.\ \ref{meanprofiles}d).
 
-\begin{figure}
+\begin{figure}[ht]
   \noindent\includegraphics[width=30pc]{res_daten.pdf}
   \caption{Mean profiles of: (a) salinity, (b) potential temperature,
     (c) buoyancy, and (d) buoyancy frequency squared. Profiles are based on the 
@@ -557,7 +557,7 @@ phase shift is expected if buoyancy variations are due to advection of
 a constant cross-slope buoyancy gradient as mathematically described
 by (\ref{beq}).
 
-\begin{figure}
+\begin{figure}[ht]
   \noindent\includegraphics[width=40pc]{daten_teos10.png}
   \caption{Evolution of observed (a) cross-slope velocity, (b)
     along-slope velocity, (c) buoyancy fluctuations, (d) buoyancy
@@ -606,7 +606,7 @@ of the rotating fluid ($f$, $N_\infty$), the slope ($\alpha$, $z_0$),
 and the tidal forcing ($P_x$, $P_y$). In addition, if the transport of
 suspended material is considered, the erosion parameter $\alpha_e$,
 the critical shear-stress $\tau_c$, and the sinking speed $w_s$
-appearing (\ref{ceq}) and (\ref{Fz}) have to be specified.
+appearing (\ref{ceq}) and (\ref{Fzjgr}) have to be specified.
 
 Most obvious is the choice of the Coriolis parameter ($f=7.65 \times
 10^{-5}$~s$^{-1}$) and the bottom slope ($\alpha=3 \times 10^{-4}$),
@@ -630,7 +630,7 @@ With this rationale in mind, and recalling that the $M_2$ tide largely
 determines the observed velocity variance at our study site, we
 computed the forcing functions based on the amplitude and phase of a
 pure $M_2$ tide with period $T_{M_2} = 12.42\,\text{h}$. Also, as
-discussed above in the context of (\ref{omegac}), the diurnal tidal
+discussed above in the context of (\ref{omegacjgr}), the diurnal tidal
 components are close to the critical period, $T_c=22.7$~h, which is
 likely to induce unphysical resonance effects in the modeled BBL.
 
@@ -680,7 +680,7 @@ above the BBL are of no consequence for the following analyses.
 
 Finally, the relevant background stratification $N_\infty$ can be
 conveniently computed from the cross-slope buoyancy gradient $\partial
-b / \partial x$, using the projection relation in (\ref{dbdx}). Here,
+b / \partial x$, using the projection relation in (\ref{dbdxjgr}). Here,
 we estimate $\partial b / \partial x$ following \cite{Endohetal2016a},
 who noted that buoyancy fluctuations inside the nearly well-mixed BBL
 are largely determined by up- and downslope advection. Thus, for this
@@ -694,7 +694,7 @@ assuming that $\partial b / \partial x$ is constant.
 Similar to \cite{Endohetal2016a}, we find that $\partial b / \partial
 x=2 \times 10^{-7}$~s$^{-2}$ largely explains the observed buoyancy
 fluctuations due cross-slope tidal motions (see below). According to
-(\ref{dbdx}), for the observed bottom slope, this value yields
+(\ref{dbdxjgr}), for the observed bottom slope, this value yields
 $N_\infty^2 \approx 7 \times 10^{-4}$~s$^{-2}$, slightly smaller than
 the measured vertical stratification above the BBL
 (Fig.\ \ref{meanprofiles}d) but of the correct order of magnitude. As
@@ -797,7 +797,7 @@ transports.
 
 
 
-\section{Dynamics of suspended material} \label{residuals}
+\section{Dynamics of suspended material} \label{residualsjgr}
 
 One of the most important implications of tidal straining is the
 generation of residual currents and residual transports of dissolved
@@ -815,7 +815,7 @@ residual transport of suspended material.
 \subsection{Temporal variability}\label{temporal}
 
 Our simulations are based on the SPM transport equation in (\ref{ceq})
-and the simple erosion model in (\ref{Fz}). Lacking information about
+and the simple erosion model in (\ref{Fzjgr}). Lacking information about
 sediment properties at the study site, we vary the sinking speed,
 identified by \cite{schulzumlauf2016} as the key parameter
 determining the transport of suspended material, over a broad range of
@@ -824,7 +824,7 @@ parameter, $\alpha_e$, shown to be of only secondary importance by
 \cite{schulzumlauf2016}, we adopt the standard values suggested by
 these authors (see Tab.\ \ref{input}).
 
-\begin{figure}
+\begin{figure}[ht]
   \noindent\includegraphics[width=40pc]{divc.png}
   \caption{Evolution of (a) cross-slope velocity, (b) turbulent
     diffusivity, and (c,d) SPM concentrations for two different
@@ -1004,7 +1004,7 @@ $v_c$, the vertically integrated expressions in (\ref{ucint}) define
 bulk measures for the residual velocities at which SPM is transported
 across and along the slope, respectively \citep{schulzumlauf2016}.
 
-\begin{figure}
+\begin{figure}[ht]
   \noindent\includegraphics[width=30pc]{wsvariation.pdf}
   \caption{Distribution of (a) cross-slope and (b) along-slope
     transport velocities, $U_c$ and $V_c$, for variable settling
@@ -1099,7 +1099,7 @@ either cross-slope or along-slope), and the minor axes increasing in
 magnitude with increasing Coriolis parameter. The latter is varied by
 changing the latitude from 20$^\circ$~N to 60$^\circ$~N at 10$^\circ$
 intervals, corresponding to axes ratios between 0.35 and 0.89 for the
-tidal ellipses.  Using (\ref{omegac}), it is easy to show that for the
+tidal ellipses.  Using (\ref{omegacjgr}), it is easy to show that for the
 parameters in Tab.\ \ref{input}, BBL resonance and the transition to
 super-critical slopes \citep[see][]{schulzumlauf2016} occur at a
 latitude of approximately 75$^\circ$~N. The range of latitudes used
@@ -1179,3 +1179,56 @@ along-slope flow component. For the highest latitudes, however, both
 the cross-slope and along-slope transports collapse again due to
 decreasing concentrations of suspended material. The reasons are
 identical to those discussed above.
+
+\section{Conclusions} \label{conclusions}
+Two main conclusions can be drawn from the first part of our study,
+which showed that an idealized one-dimensional numerical model is able
+to reproduce the most important features in a dataset describing tidal
+straining on a sloping shelf in the East China Sea. First, the good
+agreement between model and data indicates that the model correctly
+represents the key physical processes determining slope-induced tidal
+straining; and secondly, our results let it seems unlikely that
+processes other than those represented in the model (e.g., classical
+tidal straining due to river runoff) explain the observed BBL
+variability at our study site. The combination of model results and
+experimental data therefore provides the first direct and conclusive
+evidence for the occurrence of slope-induced tidal straining at a real
+ocean site.
+
+Our simulations also revealed a number of important processes related
+to the effect of rotation, which was ignored in previous studies of
+slope-induced tidal straining. For tidal ellipses oriented in the
+cross-isobath direction, the upslope transport of suspended material
+by tidal pumping, originally described by \cite{schulzumlauf2016} for
+the non-rotating case, was only slightly modified by rotational
+effects. However, the along-slope tidal velocity fluctuations induced
+by these rotational effects were shown to trigger a new type of tidal
+pumping mechanism that efficiently transports suspended material along
+the slope. A comparable along-slope tidal pumping was also observed
+for tidal ellipses oriented with their main axes along isobaths. In
+both cases, tidal pumping was found to be most efficient for an
+optimal sinking speed that was of the order of $5 \times
+10^{-4}$~m~s$^{-1}$ in our example. For material sinking significantly
+slower or quicker than this value, the tidal pumping of suspended
+material was strongly reduced. Typical transport velocities deduced
+from our simulations suggest that suspended material may be
+transported over several kilometers along the slope during one tidal
+cycle.
+
+%% In this case, however, it also turned out that rotational effects tend
+%% to decorrelate cross-slope tidal fluctuations in velocity,
+%% $\tilde{u}$, and SPM concentration, $\tilde{c}$, thus resulting in a
+%% shut-down of upslope tidal pumping ($\langle \tilde{u} \tilde{c}
+%% \rangle \rightarrow 0$). Cross-slope transport in this situation is
+%% determined by the contribution of the residual circulation $\langle u
+%% \rangle \langle c \rangle$, which is, however, a much less efficient
+%% mechanism.
+
+
+Additional parameter studies have shown that the processes identified
+in this study are robust, and therefore likely to occur across a wide
+range of naturally occurring conditions. In contrast to classical tidal
+straining that relies on the existence of a freshwater source or
+differential heating, slope-induced tidal straining only requires: a
+slope, an oscillating tidal current, and a stratified water
+column. These pre-requisites are nearly ubiquitous in the ocean.
